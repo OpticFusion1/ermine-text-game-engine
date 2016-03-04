@@ -1,5 +1,7 @@
 package game;
 
+import javax.swing.JFrame;
+
 import screenareas.DisplayAreas;
 
 public class Game {

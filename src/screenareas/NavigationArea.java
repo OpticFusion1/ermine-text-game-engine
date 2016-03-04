@@ -13,7 +13,10 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class NavigationArea extends ActionArea {
 	private ActionButton north, south, east, west, center;
@@ -21,14 +24,14 @@ public class NavigationArea extends ActionArea {
 	private int maxGap = 5;
 	
 	public NavigationArea(int width, int height) {
-		super(width, height, new GridLayout(3, 3));
+		super(width, height, new GridLayout(0, 2));
 		
-        JButton b = new JButton("Just fake button");
-        Dimension buttonSize = b.getPreferredSize();
-        setPreferredSize(new Dimension((int)(buttonSize.getWidth() * 2.5)+maxGap,
-                (int)(buttonSize.getHeight() * 3.5)+maxGap * 2));
+		JButton b = new JButton("Just fake button");
+		Dimension buttonSize = b.getPreferredSize();
+		setPreferredSize(new Dimension((int)(buttonSize.getWidth() * 2.5)+maxGap,
+				(int)(buttonSize.getHeight() * 3.5)+maxGap * 2));
         
-		setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		//setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		north = new ActionButton("North");
 		south = new ActionButton("South");
