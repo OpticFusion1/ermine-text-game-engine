@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
@@ -15,23 +16,24 @@ import javax.swing.JPanel;
  * Inventory button, status check, etc
  */
 
-public class MiscActions extends ActionArea {
+public class MiscActions {
 	private ActionButton inventory;
+	private JPanel parent;
 	
-	public MiscActions(int width, int height) {
-		super(width, height, new GridBagLayout());
+	public MiscActions(int width, int height, JPanel parent) {
+		this.parent = parent;
+		inventory = new ActionButton("Inventory");
 		
 		GridBagConstraints c = new GridBagConstraints();
-		inventory = new ActionButton("Inventory");
-
 		c.gridx = 0;
 		c.gridy = 0;
-		add(inventory, c);
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		//TODO
+		parent.add(inventory, c);
+		
+		inventory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Inventory clicked!");
+			}
+		});
 	}
 	
 }
