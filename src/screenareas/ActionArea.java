@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-public abstract class ActionArea extends JPanel implements ActionListener {
+public abstract class ActionArea extends JPanel {
 	public ActionArea(int width, int height, LayoutManager layout) {
 		this.setPreferredSize(new Dimension(width, height));
 	}

@@ -1,15 +1,15 @@
 package screenareas;
 
-import gui_elements.ActionButton;
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import screenareas.NavigationArea.ButtonNames;
+import controllers.Action;
+import controllers.ActionButton;
 
 /*
  * What goes in the right side of the action area.
@@ -17,6 +17,7 @@ import javax.swing.JPanel;
  */
 
 public class MiscActions {
+	public enum ButtonNames {INVENTORY};
 	private ActionButton inventory;
 	private JPanel parent;
 	
@@ -28,12 +29,33 @@ public class MiscActions {
 		c.gridx = 0;
 		c.gridy = 0;
 		parent.add(inventory, c);
-		
-		inventory.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Inventory clicked!");
-			}
-		});
+	}
+
+	private ActionButton getButton(ButtonNames btnName) {
+		ActionButton btn;
+		switch(btnName) {
+			case INVENTORY:
+				btn = inventory;
+			default:
+				btn = null;
+		}
+		return btn;
+	}
+	
+	public void registerAction(ButtonNames btnName, Action action) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.registerAction(action);
+	}
+	public void deregisterAction(ButtonNames btnName, Action action) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.deregisterAction(action);
+	}
+	public void deregisterAllActions(ButtonNames btnName) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.deregisterAllActions();
 	}
 	
 }

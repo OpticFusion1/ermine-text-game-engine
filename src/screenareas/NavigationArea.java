@@ -1,27 +1,16 @@
 package screenareas;
 
-import gui_elements.ActionButton;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+import controllers.Action;
+import controllers.ActionButton;
 
 public class NavigationArea {
+	public enum ButtonNames {NORTH, SOUTH, EAST, WEST, CENTER, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST};
+	
 	private ActionButton north, south, east, west, center;
 	private ActionButton northeast, northwest, southeast, southwest;
 	private JPanel parent;
@@ -51,54 +40,50 @@ public class NavigationArea {
 		parent.add(southwest);
 		parent.add(south);
 		parent.add(southeast);
-		
-		
-		north.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("North clicked!");
-			}
-		});
-		south.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("South clicked!");
-			}
-		});
-		east.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("East clicked!");
-			}
-		});
-		west.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("West clicked!");
-			}
-		});
-		
-
-		northwest.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Northwest clicked!");
-			}
-		});
-		northeast.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Northeast clicked!");
-			}
-		});
-		southwest.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Southwest clicked!");
-			}
-		});
-		southeast.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Southeast clicked!");
-			}
-		});
-		center.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Center clicked!");
-			}
-		});
 	}
+	
+	private ActionButton getButton(ButtonNames btnName) {
+		ActionButton btn;
+		switch(btnName) {
+			case NORTH:
+				btn = north;
+			case SOUTH:
+				btn = south;
+			case EAST:
+				btn = east;
+			case WEST:
+				btn = west;
+			
+			case NORTHEAST:
+				btn = northeast;
+			case NORTHWEST:
+				btn = northwest;
+			case SOUTHEAST:
+				btn = southeast;
+			case SOUTHWEST:
+				btn = southwest;
+			default:
+				btn = null;
+		}
+		return btn;
+	}
+
+	public void registerAction(ButtonNames btnName, Action action) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.registerAction(action);
+	}
+	public void deregisterAction(ButtonNames btnName, Action action) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.deregisterAction(action);
+	}
+	public void deregisterAllActions(ButtonNames btnName) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.deregisterAllActions();
+	}
+	
+	
+	
 }

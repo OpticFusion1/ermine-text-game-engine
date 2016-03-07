@@ -43,8 +43,4 @@ public class ActionInfoContainer extends ActionArea {
         this.add(miscAreaPanel);
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO
-	}
 }
