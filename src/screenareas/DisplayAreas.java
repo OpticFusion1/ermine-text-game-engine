@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controllers.Action;
+
 public class DisplayAreas {
 	private JFrame frame;
 	private TextArea textArea;
@@ -44,8 +46,17 @@ public class DisplayAreas {
 	public String getText() {
 		return textArea.getText();
 	}
+
+	public TextArea getTextArea() {
+		return textArea;
+	}
 	
-	
+	public void deregisterAllActions() {
+		actionArea.deregisterAllActions();
+	}
+	public void registerAction(NavigationArea.ButtonNames btnName, Action act) {
+		actionArea.registerAction(btnName, act);
+	}
 	
 	
 }

@@ -8,7 +8,11 @@ public abstract class Area {
 	
 	public Area(DisplayAreas area) {
 		this.area = area;
+		area.deregisterAllActions();
+		registerNewActions(area);
 	}
+	
+	protected abstract void registerNewActions(DisplayAreas area);
 	
 	public String getEntranceText() {
 		return entranceText;

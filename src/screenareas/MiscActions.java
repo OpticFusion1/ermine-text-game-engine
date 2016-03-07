@@ -36,8 +36,10 @@ public class MiscActions {
 		switch(btnName) {
 			case INVENTORY:
 				btn = inventory;
+				break;
 			default:
 				btn = null;
+				break;
 		}
 		return btn;
 	}
@@ -56,6 +58,10 @@ public class MiscActions {
 		ActionButton btn = getButton(btnName);
 		if (btn != null)
 			btn.deregisterAllActions();
+	}
+	public void deregisterAllActions() {
+		if (inventory != null)
+			inventory.deregisterAllActions();
 	}
 	
 }

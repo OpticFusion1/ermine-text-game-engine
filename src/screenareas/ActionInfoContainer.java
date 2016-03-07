@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controllers.Action;
+
 /*
  * Holds all the stuff that isn't in the main text area.
  * Think, "all that stuff below the actual text screen."
@@ -41,6 +43,21 @@ public class ActionInfoContainer extends ActionArea {
         
         this.add(navAreaPanel);
         this.add(miscAreaPanel);
+	}
+	
+	public void deregisterAllActions() {
+		navArea.deregisterAllActions();
+		miscArea.deregisterAllActions();
+	}
+
+	@Override
+	public void registerAction(NavigationArea.ButtonNames btnName, Action act) {
+		navArea.registerAction(btnName, act);
+	}
+
+	@Override
+	public void registerAction(MiscActions.ButtonNames btnName, Action act) {
+		miscArea.registerAction(btnName, act);
 	}
 	
 }

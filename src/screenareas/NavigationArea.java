@@ -1,8 +1,5 @@
 package screenareas;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JPanel;
 
 import controllers.Action;
@@ -47,27 +44,45 @@ public class NavigationArea {
 		switch(btnName) {
 			case NORTH:
 				btn = north;
+				break;
 			case SOUTH:
 				btn = south;
+				break;
 			case EAST:
 				btn = east;
+				break;
 			case WEST:
 				btn = west;
+				break;
 			
 			case NORTHEAST:
 				btn = northeast;
+				break;
 			case NORTHWEST:
 				btn = northwest;
+				break;
 			case SOUTHEAST:
 				btn = southeast;
+				break;
 			case SOUTHWEST:
 				btn = southwest;
+				break;
+			case CENTER:
+				btn = center;
+				break;
 			default:
 				btn = null;
+				break;
 		}
 		return btn;
 	}
 
+	public void setButtonVisibility(ButtonNames btnName, boolean visible) {
+		ActionButton btn = getButton(btnName);
+		if (btn != null)
+			btn.setVisible(visible);
+	}
+	
 	public void registerAction(ButtonNames btnName, Action action) {
 		ActionButton btn = getButton(btnName);
 		if (btn != null)
@@ -82,6 +97,27 @@ public class NavigationArea {
 		ActionButton btn = getButton(btnName);
 		if (btn != null)
 			btn.deregisterAllActions();
+	}
+	public void deregisterAllActions() {
+		if (north != null)
+			north.deregisterAllActions();
+		if (south != null)
+			south.deregisterAllActions();
+		if (east != null)
+			east.deregisterAllActions();
+		if (west!= null)
+			west.deregisterAllActions();
+		
+		if (northeast != null)
+			northeast.deregisterAllActions();
+		if (northwest != null)
+			northwest.deregisterAllActions();
+		if (southwest != null)
+			southwest.deregisterAllActions();
+		if (southeast != null)
+			southeast.deregisterAllActions();
+		if (center != null)
+			center.deregisterAllActions();
 	}
 	
 	
