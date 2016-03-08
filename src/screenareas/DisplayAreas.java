@@ -15,7 +15,7 @@ import controllers.Action;
 public class DisplayAreas {
 	private JFrame frame;
 	private TextArea textArea;
-	private ActionInfoContainer actionArea;
+	private ActionInfoContainer actionInfoArea;
 	
 	private static int textAreaRows = 20;
 	private static int textAreaColumns = 80;
@@ -23,7 +23,7 @@ public class DisplayAreas {
 	
 	public DisplayAreas(int screenWidth, int screenHeight) {
 		textArea = new MainTextArea(textAreaRows, textAreaColumns);
-		actionArea = new ActionInfoContainer(screenWidth, actionAreaAddPixelsHeight + screenHeight);
+		actionInfoArea = new ActionInfoContainer(screenWidth, actionAreaAddPixelsHeight + screenHeight);
 		
 		frame = new JFrame();
 		frame.setLayout(new BorderLayout());
@@ -32,7 +32,7 @@ public class DisplayAreas {
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.add(textArea.getScrollPane(), BorderLayout.CENTER);
-		frame.add(actionArea, BorderLayout.SOUTH);
+		frame.add(actionInfoArea, BorderLayout.SOUTH);
 		
 		frame.pack();
 	}
@@ -50,12 +50,15 @@ public class DisplayAreas {
 	public TextArea getTextArea() {
 		return textArea;
 	}
+	public ActionInfoContainer getActionInfoArea() {
+		return actionInfoArea;
+	}
 	
 	public void deregisterAllActions() {
-		actionArea.deregisterAllActions();
+		actionInfoArea.deregisterAllActions();
 	}
 	public void registerAction(NavigationArea.ButtonNames btnName, Action act) {
-		actionArea.registerAction(btnName, act);
+		actionInfoArea.registerAction(btnName, act);
 	}
 	
 	

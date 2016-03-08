@@ -25,7 +25,7 @@ public abstract class TextArea {
 	}
 	public void appendText(String str) {
 		String textAreaContents = textArea.getText();
-		if (textAreaContents.trim().equals(""))
+		if (textAreaContents.trim().length() == 0)
 			setText(str);
 		else
 			setText(textAreaContents + "\n" + str);

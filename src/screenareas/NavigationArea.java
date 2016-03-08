@@ -39,7 +39,7 @@ public class NavigationArea {
 		parent.add(southeast);
 	}
 	
-	private ActionButton getButton(ButtonNames btnName) {
+	public ActionButton getButton(ButtonNames btnName) {
 		ActionButton btn;
 		switch(btnName) {
 			case NORTH:
