@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import controllers.Action;
 
 public abstract class ActionArea extends JPanel {
+	public ButtonNameContainer buttonNameContainer;
+	
 	public ActionArea(int width, int height, LayoutManager layout) {
 		this.setPreferredSize(new Dimension(width, height));
 	}

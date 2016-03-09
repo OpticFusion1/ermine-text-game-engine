@@ -16,6 +16,7 @@ import controllers.ActionButton;
  * Inventory button, status check, etc
  */
 
+// TODO: modify ActionArea to contain a ButtonNameContainer and make MiscActions and NavigationArea extend it to make areas easier to extend in the future
 public class MiscActions {
 	public enum ButtonNames {INVENTORY};
 	private ActionButton inventory;

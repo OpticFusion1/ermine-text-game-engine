@@ -44,9 +44,12 @@ public class ActionInfoContainer extends ActionArea {
         this.add(navAreaPanel);
         this.add(miscAreaPanel);
 	}
-	
+
 	public NavigationArea getNavigationArea() {
 		return navArea;
+	}
+	public MiscActions getMiscArea() {
+		return miscArea;
 	}
 	
 	public void deregisterAllActions() {

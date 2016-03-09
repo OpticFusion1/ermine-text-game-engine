@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-public class ActionButton extends JButton {
+public class ActionButton extends JButton implements ScreenElement {
 	private ArrayList<Action> actions;
 	
 	public ActionButton(String text) {
@@ -31,6 +31,11 @@ public class ActionButton extends JButton {
 	}
 	public void deregisterAllActions() {
 		actions.clear();
+	}
+
+	@Override
+	public void setVisibility(boolean bool) {
+		setVisibility(bool);
 	}
 	
 }

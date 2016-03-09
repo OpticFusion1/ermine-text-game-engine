@@ -18,10 +18,14 @@ public class TestStarterArea extends Area {
 
 	@Override
 	protected void registerNewActions(DisplayAreas area) {
-		area.registerAction(NavigationArea.ButtonNames.NORTH, new PrintAction("north clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
-		area.registerAction(NavigationArea.ButtonNames.SOUTH, new PrintAction("south clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
-		area.registerAction(NavigationArea.ButtonNames.EAST, new PrintAction("east clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
-		area.registerAction(NavigationArea.ButtonNames.WEST, new PrintAction("west clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
+		area.registerAction(NavigationArea.ButtonNames.NORTH,
+				new PrintAction("north clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
+		area.registerAction(NavigationArea.ButtonNames.SOUTH,
+				new PrintAction("south clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
+		area.registerAction(NavigationArea.ButtonNames.EAST,
+				new PrintAction("east clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
+		area.registerAction(NavigationArea.ButtonNames.WEST,
+				new PrintAction("west clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));
 
 		area.registerAction(NavigationArea.ButtonNames.CENTER,
 				new PrintAction("center clicked", area.getTextArea(), PrintAction.PrintOptions.APPEND));

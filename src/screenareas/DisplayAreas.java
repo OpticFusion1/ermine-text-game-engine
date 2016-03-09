@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import controllers.Action;
+import controllers.ActionButton;
 
 public class DisplayAreas {
 	private JFrame frame;
@@ -59,6 +60,13 @@ public class DisplayAreas {
 	}
 	public void registerAction(NavigationArea.ButtonNames btnName, Action act) {
 		actionInfoArea.registerAction(btnName, act);
+	}
+
+	public ActionButton getButton(NavigationArea.ButtonNames btnName) {
+		return actionInfoArea.getNavigationArea().getButton(btnName);
+	}
+	public ActionButton getButton(MiscActions.ButtonNames btnName) {
+		return actionInfoArea.getMiscArea().getButton(btnName);
 	}
 	
 	
