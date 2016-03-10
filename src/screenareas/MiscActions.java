@@ -17,13 +17,14 @@ import controllers.ActionButton;
  */
 
 // TODO: modify ActionArea to contain a ButtonNameContainer and make MiscActions and NavigationArea extend it to make areas easier to extend in the future
-public class MiscActions {
+public class MiscActions extends ActionArea {
 	public enum ButtonNames {INVENTORY};
 	private ActionButton inventory;
-	private JPanel parent;
+	//private JPanel parent;
 	
 	public MiscActions(int width, int height, JPanel parent) {
-		this.parent = parent;
+		super();
+		//this.parent = parent;
 		inventory = new ActionButton("Inventory");
 		
 		GridBagConstraints c = new GridBagConstraints();
@@ -45,6 +46,7 @@ public class MiscActions {
 		return btn;
 	}
 	
+	@Override
 	public void registerAction(ButtonNames btnName, Action action) {
 		ActionButton btn = getButton(btnName);
 		if (btn != null)

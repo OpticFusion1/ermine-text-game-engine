@@ -17,7 +17,7 @@ import controllers.Action;
  * Mainly action panels and info panels.
  */
 
-public class ActionInfoContainer extends ActionArea {
+public class ActionInfoContainer extends ActionDisplayArea {
 	private NavigationArea navArea;
 	private MiscActions miscArea;
 	private int maxGap = 5;

@@ -10,10 +10,10 @@ public class NavigationArea {
 	
 	private ActionButton north, south, east, west, center;
 	private ActionButton northeast, northwest, southeast, southwest;
-	private JPanel parent;
+	//private JPanel parent;
 	
 	public NavigationArea(int width, int height, JPanel parent) {
-		this.parent = parent;
+		//this.parent = parent;
 		north = new ActionButton("North");
 		south = new ActionButton("South");
 		east = new ActionButton("East");
