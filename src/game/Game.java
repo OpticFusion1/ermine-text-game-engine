@@ -2,18 +2,16 @@ package game;
 
 import javax.swing.JFrame;
 
-import areas.TestStarterArea;
-import screenareas.DisplayAreas;
+import de.lessvoid.nifty.renderer.lwjgl.input.LwjglInputSystem;
 
 public class Game {
-	private DisplayAreas displayAreas;
+	//private DisplayAreas displayAreas;
 	
-	public Game(int screenWidth, int screenHeight) {
-		displayAreas = new DisplayAreas(screenWidth, screenHeight);
+	public Game() {
+		//displayAreas = new DisplayAreas(screenWidth, screenHeight);
     }
 	
 	public void startGame() {
-		TestStarterArea testStarterArea = new TestStarterArea(displayAreas);
 		
 		
 		/*displayAreas.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean magna leo, sollicitudin ultricies ornare quis, aliquet non odio. Praesent laoreet fermentum libero vel condimentum. Vivamus auctor condimentum ex, non rutrum dui lacinia in. Nullam non elit venenatis, faucibus eros ut, bibendum leo. Quisque bibendum mauris magna, et aliquam lacus elementum a. Mauris ut elit molestie, porttitor tortor eu, mollis ex. Vestibulum nec ipsum laoreet, rhoncus turpis sed, imperdiet purus. Phasellus mollis luctus nulla, ac porttitor dolor efficitur id. Donec ac maximus metus. Sed vestibulum tincidunt mi, ac accumsan velit ultrices at. Suspendisse ornare et diam eget faucibus. Suspendisse potenti. Aliquam risus sem, aliquet nec velit eget, accumsan iaculis ex. Donec placerat nulla nulla, nec eleifend nibh malesuada sed. Phasellus nisi nibh, dictum id maximus ac, cursus id nunc.\n\n"+
