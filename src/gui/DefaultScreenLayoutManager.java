@@ -10,11 +10,29 @@ import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.tools.Color;
 import de.lessvoid.nifty.tools.SizeValue;
 
+/*     Super simplified version of the default layout
+ *     +--------------------------------+
+ *     |  text here!                    |
+ *     |                                |
+ *     |                                |
+ *     |                                |
+ *     |                                |
+ *     |                                |
+ *     +--------------------------------+                 +--------------------------------+                +--------------------------------+
+ *     |(status)     north      (status)|     switches    | item1     item3                |     switches   |            item#               |
+ *     |     west    invtry    east     |    <-------->   | item2     item4                |    <-------->  |     info blah blah blah        |
+ *     |(status)     south      (status)|                 |                                |                |                                |
+ *     +--------------------------------+                 +--------------------------------+                +--------------------------------+
+ *           ^ navigation panel ^                               ^ inventory panel ^                                 ^ item panel ^
+ *     
+ *     Also, there will be an actions panel that works like the navigation panel
+ */
+
 public class DefaultScreenLayoutManager extends ScreenLayoutManager {
 	public DefaultScreenLayoutManager(final Nifty nifty, final ScreenController controller) {
 		super(nifty, controller);
 		
-		screenBuilder.layer(new LayerBuilder("layer") {{
+		/*screenBuilder.layer(new LayerBuilder("layer") {{
 			childLayoutCenter();
 			onStartScreenEffect(new EffectBuilder("fade") {{
 				length(500);
@@ -46,7 +64,11 @@ public class DefaultScreenLayoutManager extends ScreenLayoutManager {
 					alignCenter();
 					valignCenter();
 				}});
+				control(new ButtonBuilder("exit2", "This one also exits") {{
+					alignCenter();
+					valignCenter();
+				}});
 			}});
-		}});
+		}});*/
 	}
 }

@@ -51,25 +51,13 @@ public class Main {
 		nifty.loadStyleFile("nifty-default-styles.xml");
 		nifty.loadControlFile("nifty-default-controls.xml");
 
-		//createIntroScreen(nifty, new ExitButtonScreenController());
-		DefaultScreenLayoutManager screenLayoutManager = new DefaultScreenLayoutManager(nifty, new ExitButtonScreenController());
+		//createIntroScreen(nifty, new MyScreenController());
+		DefaultScreenLayoutManager screenLayoutManager = new DefaultScreenLayoutManager(nifty, new MyScreenController());
 		screenLayoutManager.build();
 		
 		nifty.gotoScreen("start");
 		renderLoop(nifty);
 		shutDown(inputSystem);
-	}
-
-	public static class ExitButtonScreenController extends DefaultScreenController {
-		@NiftyEventSubscriber(id="exit")
-		public void exit(final String id, final ButtonClickedEvent event) {
-			nifty.exit();
-		}
-		
-		@NiftyEventSubscriber(id="exit2")
-		public void exit2(final String id, final ButtonClickedEvent event) {
-			nifty.exit();
-		}
 	}
 
 	private static LwjglInputSystem initInput() throws Exception {
@@ -144,6 +132,46 @@ public class Main {
 				new AccurateTimeProvider());
 	}
 	
+	/*private static Screen createIntroScreen(final Nifty nifty, final ScreenController controller) {
+		return new ScreenBuilder("start") {{
+			controller(controller);
+			layer(new LayerBuilder("layer") {{
+				childLayoutCenter();
+				onStartScreenEffect(new EffectBuilder("fade") {{
+					length(500);
+					effectParameter("start", "#0");
+					effectParameter("end", "#f");
+				}});
+				onEndScreenEffect(new EffectBuilder("fade") {{
+					length(500);
+					effectParameter("start", "#f");
+					effectParameter("end", "#0");
+				}});
+				onActiveEffect(new EffectBuilder("gradient") {{
+					effectValue("offset", "0%", "color", "#333f");
+					effectValue("offset", "100%", "color", "#ffff");
+				}});
+				panel(new PanelBuilder() {{
+					childLayoutVertical();
+					text(new TextBuilder() {{
+						text("Nifty 1.4 Core Hello World");
+						style("base-font");
+						color(Color.BLACK);
+						alignCenter();
+						valignCenter();
+					}});
+					panel(new PanelBuilder(){{
+						height(SizeValue.px(10));
+					}});
+					control(new ButtonBuilder("exit", "Pretty Cool!") {{
+						alignCenter();
+						valignCenter();
+					}});
+				}});
+			}});
+		}}.build(nifty);
+	}*/
+	
 	private static void renderLoop(final Nifty nifty) {
 		boolean done = false;
 		while (!Display.isCloseRequested() && !done) {
@@ -164,5 +192,12 @@ public class Main {
 		inputSystem.shutdown();
 		Display.destroy();
 		System.exit(0);
+	}
+	
+	public static class MyScreenController extends DefaultScreenController {
+		@NiftyEventSubscriber(id="exit")
+		public void exit(final String id, final ButtonClickedEvent event) {
+			nifty.exit();
+		}
 	}
 }
