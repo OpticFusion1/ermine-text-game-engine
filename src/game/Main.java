@@ -52,10 +52,14 @@ public class Main {
 		nifty.loadControlFile("nifty-default-controls.xml");
 
 		//createIntroScreen(nifty, new ExitButtonScreenController());
-		DefaultScreenLayoutManager screenLayoutManager = new DefaultScreenLayoutManager(nifty, new ExitButtonScreenController());
-		screenLayoutManager.build();
+		//DefaultScreenLayoutManager screenLayoutManager = new DefaultScreenLayoutManager(nifty, new ExitButtonScreenController());
+		//screenLayoutManager.build();
 		
-		nifty.gotoScreen("start");
+		nifty.fromXml("game/default.xsd", "start", new ExitButtonScreenController());
+		
+
+		//nifty.gotoScreen("start");
+		//nifty.gotoScreen("main_game");
 		renderLoop(nifty);
 		shutDown(inputSystem);
 	}

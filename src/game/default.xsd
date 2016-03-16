@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+	<useStyles filename="nifty-default-styles.xml" />
+	<useControls filename="nifty-default-controls.xml" />
+	
+	<screen id="start">
+		<layer childLayout="vertical">
+			<panel id="text_panel" childLayout="vertical" backgroundColor="#f008" height="75%" width="100%">
+				<text id="main_text" font="aurulent-sans-16.fnt"
+					text="Hello World!" />
+			</panel>
+			
+			<panel id="navigation_panel" childLayout="vertical" backgroundColor="#ffff">
+				<panel childLayout="horizontal">
+					<panel id="northwest" childLayout="center">
+						<text id="northwest_text" width="100%" height="100%" color="#000f" font="aurulent-sans-16.fnt"
+							text="northwest placeholder" />
+					</panel>
+					<panel childLayout="center">
+						<control id="north" type="button" width="80%" height="80%" label="North"></control>
+					</panel>
+					<panel id="northeast" childLayout="center">
+						<text id="northeast_text" width="100%" height="100%" color="#000f" font="aurulent-sans-16.fnt"
+							text="northeast placeholder" />
+					</panel>
+				</panel>
+				
+				<panel childLayout="horizontal">
+					<panel childLayout="center">
+						<control id="west" type="button" width="80%" height="80%" label="West"></control>
+					</panel>
+					<panel childLayout="center">
+						<control id="center" type="button" width="80%" height="80%" label="Inventory"></control>
+					</panel>
+					<panel childLayout="center">
+						<control id="east" type="button" width="80%" height="80%" label="East"></control>
+					</panel>
+				</panel>
+				
+				<panel childLayout="horizontal">
+					<panel id="southwest" childLayout="center">
+						<text id="southwest_text" width="100%" height="100%" color="#000f" font="aurulent-sans-16.fnt"
+							text="southwest placeholder" />
+					</panel>
+					<panel childLayout="center">
+						<control id="south" type="button" width="80%" height="80%" label="South"></control>
+					</panel>
+					<panel id="southeast" childLayout="center">
+						<text id="southeast_text" width="100%" height="100%" color="#000f" font="aurulent-sans-16.fnt"
+							text="southeast placeholder" />
+					</panel>
+				</panel>
+			</panel>
+    </layer>
+  </screen>
+</nifty>
