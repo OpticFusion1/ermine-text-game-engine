@@ -1,4 +1,4 @@
-package game;
+package control;
 
 import static org.lwjgl.opengl.GL11.glBlendFunc;
 import static org.lwjgl.opengl.GL11.glClear;
@@ -26,7 +26,12 @@ import de.lessvoid.nifty.builder.PanelBuilder;
 import de.lessvoid.nifty.builder.ScreenBuilder;
 import de.lessvoid.nifty.builder.TextBuilder;
 import de.lessvoid.nifty.controls.ButtonClickedEvent;
+import de.lessvoid.nifty.controls.ScrollPanel;
+import de.lessvoid.nifty.controls.ScrollPanel.AutoScroll;
 import de.lessvoid.nifty.controls.button.builder.ButtonBuilder;
+import de.lessvoid.nifty.controls.scrollpanel.ScrollPanelControl;
+import de.lessvoid.nifty.elements.Element;
+import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.nulldevice.NullSoundDevice;
 import de.lessvoid.nifty.render.batch.BatchRenderDevice;
 import de.lessvoid.nifty.renderer.lwjgl.input.LwjglInputSystem;
@@ -54,8 +59,47 @@ public class Main {
 		//createIntroScreen(nifty, new ExitButtonScreenController());
 		//DefaultScreenLayoutManager screenLayoutManager = new DefaultScreenLayoutManager(nifty, new ExitButtonScreenController());
 		//screenLayoutManager.build();
+
+		//nifty.fromXml("layouts/default.xsd", "start", new ExitButtonScreenController());
+		nifty.fromXml("layouts/defaultWithStatsPane.xsd", "start", new ExitButtonScreenController());
+		Screen screen = nifty.getScreen("start");
+		Element mainText = screen.findElementById("main_text");
+		TextRenderer renderer = mainText.getRenderer(TextRenderer.class);
+		renderer.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit quam sed blandit dictum. Duis ultrices "+
+				"metus nunc, eget dignissim diam congue non. Suspendisse faucibus, ante id pulvinar laoreet, tellus erat convallis risus, ut "+
+				"rutrum orci tortor vitae magna. Cras hendrerit ut nibh euismod luctus. Sed interdum, mauris sit amet fermentum malesuada, "+
+				"arcu ligula venenatis odio, et vestibulum purus arcu a lacus. Ut pellentesque a ante a bibendum. Class aptent taciti "+
+				"sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur mollis justo quis metus facilisis, "+
+				"et viverra enim ullamcorper. Nullam consectetur massa et leo facilisis egestas. Nulla urna risus, aliquam a turpis "+
+				"vitae, auctor suscipit ex. Integer venenatis nisi tortor, nec malesuada mi eleifend sit amet. Nam eu congue magna.\n\n\n"+
+				"Curabitur consequat ante orci, vitae maximus justo tristique ullamcorper. Donec non scelerisque felis. Nullam luctus ex "+
+				"nibh, sed fringilla nibh blandit in. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. "+
+				"Donec suscipit vulputate dui, sit amet facilisis justo volutpat nec. Aliquam vel rhoncus lectus. Donec cursus, augue quis "+
+				"eleifend molestie, est leo tempor leo, pellentesque faucibus libero mauris a mi. Duis dictum hendrerit elit, quis sagittis "+
+				"elit. Suspendisse ornare eleifend orci, id commodo ligula cursus in. Pellentesque non tellus semper, euismod ante et, "+
+				"feugiat velit. Suspendisse ex nulla, suscipit sed erat consequat, congue luctus diam. Sed id luctus sapien. Suspendisse "+
+				"nec felis id orci pulvinar tincidunt. Phasellus pellentesque sem eu nisi lacinia, pulvinar vestibulum magna ullamcorper.\n\n\n\n"+
+				"\n\n\n\n\n\n\n asdfasd asdg aergvsehert gsetrg\n\n\n\n\n\n"
+				+ "\n\n\n\nfdgasfdgsrfgr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n end\n\nanother one");
 		
-		nifty.fromXml("game/default.xsd", "start", new ExitButtonScreenController());
+
+		Element mainTextPanel = screen.findElementById("main_text_panel");
+		ScrollPanel a = (ScrollPanel) mainTextPanel;
+		
+		/*screen.layoutLayers();
+		ScrollPanelControl scrollPanel = screen.findControl("scrollbarPanel", ScrollPanelControl.class);
+		scrollPanel.setUp(0, mainTextPanel.getHeight() / 100.f, 0, mainTextPanel.getHeight() / 10.f, AutoScroll.OFF);
+		scrollPanel.setVerticalPos(0.0f);*/
+		
+		/*ScrollPanelControl scrollPanel = screen.findControl("main_text_scrollbar", ScrollPanelControl.class);
+		Element mainTextPanel = screen.findElementById("main_text_panel");
+		if (mainTextPanel == null)
+			System.out.println("it's null");
+		if (screen.findElementById("main_text_scrollbar") == null)
+			System.out.println("this is null too");
+		scrollPanel.setUp(0, mainTextPanel.getHeight() / 100.f, 0, mainTextPanel.getHeight() / 10.f, AutoScroll.OFF);
+		scrollPanel.setVerticalPos(0.0f);*/
+		//nifty.setDebugOptionPanelColors(true);
 		
 
 		//nifty.gotoScreen("start");

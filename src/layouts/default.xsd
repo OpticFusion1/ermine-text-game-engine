@@ -5,9 +5,13 @@
 	
 	<screen id="start">
 		<layer childLayout="vertical">
-			<panel id="text_panel" childLayout="vertical" backgroundColor="#f008" height="75%" width="100%">
-				<text id="main_text" font="aurulent-sans-16.fnt"
-					text="Hello World!" />
+			<panel childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
+				<control id="main_text_scrollbar" name="scrollPanel" horizontal="false" height="100%">
+					<panel id="main_text_panel" childLayout="vertical" backgroundColor="#f008" >
+						<text id="main_text" font="aurulent-sans-16.fnt" color="#000000"
+							text="Hello World!" />
+					</panel>
+				</control>
 			</panel>
 			
 			<panel id="navigation_panel" childLayout="vertical" backgroundColor="#ffff">
@@ -30,7 +34,7 @@
 						<control id="west" type="button" width="80%" height="80%" label="West"></control>
 					</panel>
 					<panel childLayout="center">
-						<control id="center" type="button" width="80%" height="80%" label="Inventory"></control>
+						<control id="center" type="button" width="80%" height="80%" label="Center"></control>
 					</panel>
 					<panel childLayout="center">
 						<control id="east" type="button" width="80%" height="80%" label="East"></control>
