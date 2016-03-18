@@ -5,11 +5,15 @@
 	
 	<screen id="start">
 		<layer childLayout="vertical">
-			<panel childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
-				<control id="main_text_scrollbar" name="scrollPanel" horizontal="false" height="100%" autoScroll="top">
-					<panel id="main_text_panel" childLayout="vertical" backgroundColor="#f008" width="100%" height="100%">
+			<panel id="main_text_panel_container" childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
+				<control id="main_text_scrollbar" name="scrollPanel" horizontal="false" height="100%">
+					<panel id="main_text_panel" childLayout="vertical" backgroundColor="#f008" width="700px" height="1000px">
 						<text id="main_text" wrap="true" font="aurulent-sans-16.fnt" color="#000000"
-							text="Hello World!" />
+							text="Hello &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;
+							&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;
+							&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;
+							&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;
+							World!" />
 					</panel>
 				</control>
 			</panel>

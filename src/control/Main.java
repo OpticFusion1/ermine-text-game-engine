@@ -20,16 +20,8 @@ import org.lwjgl.util.glu.GLU;
 
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.NiftyEventSubscriber;
-import de.lessvoid.nifty.builder.EffectBuilder;
-import de.lessvoid.nifty.builder.LayerBuilder;
-import de.lessvoid.nifty.builder.PanelBuilder;
-import de.lessvoid.nifty.builder.ScreenBuilder;
-import de.lessvoid.nifty.builder.TextBuilder;
 import de.lessvoid.nifty.controls.ButtonClickedEvent;
 import de.lessvoid.nifty.controls.ScrollPanel;
-import de.lessvoid.nifty.controls.ScrollPanel.AutoScroll;
-import de.lessvoid.nifty.controls.button.builder.ButtonBuilder;
-import de.lessvoid.nifty.controls.scrollpanel.ScrollPanelControl;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.nulldevice.NullSoundDevice;
@@ -38,13 +30,11 @@ import de.lessvoid.nifty.renderer.lwjgl.input.LwjglInputSystem;
 import de.lessvoid.nifty.renderer.lwjgl.render.LwjglBatchRenderBackendCoreProfileFactory;
 import de.lessvoid.nifty.screen.DefaultScreenController;
 import de.lessvoid.nifty.screen.Screen;
-import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.spi.time.impl.AccurateTimeProvider;
-import de.lessvoid.nifty.tools.Color;
 import de.lessvoid.nifty.tools.SizeValue;
-import gui.DefaultScreenLayoutManager;
 
 public class Main {
+	// http://niftyeditor.it/downloads/
 	private static final int WIDTH = 1024;
 	private static final int HEIGHT = 768;
 	
@@ -65,7 +55,7 @@ public class Main {
 		Screen screen = nifty.getScreen("start");
 		Element mainText = screen.findElementById("main_text");
 		TextRenderer renderer = mainText.getRenderer(TextRenderer.class);
-		renderer.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit quam sed blandit dictum. Duis ultrices "+
+		/*renderer.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit quam sed blandit dictum. Duis ultrices "+
 				"metus nunc, eget dignissim diam congue non. Suspendisse faucibus, ante id pulvinar laoreet, tellus erat convallis risus, ut "+
 				"rutrum orci tortor vitae magna. Cras hendrerit ut nibh euismod luctus. Sed interdum, mauris sit amet fermentum malesuada, "+
 				"arcu ligula venenatis odio, et vestibulum purus arcu a lacus. Ut pellentesque a ante a bibendum. Class aptent taciti "+
@@ -81,24 +71,33 @@ public class Main {
 				"nec felis id orci pulvinar tincidunt. Phasellus pellentesque sem eu nisi lacinia, pulvinar vestibulum magna ullamcorper.\n\n\n\n"+
 				"\n\n\n\n\n\n\n asdfasd asdg aergvsehert gsetrg\n\n\n\n\n\n"
 				+ "\n\n\n\nfdgasfdgsrfgr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n end\n\nanother one");
+		*/
 		
-
+		
 		Element mainTextPanel = screen.findElementById("main_text_panel");
-		ScrollPanel a = (ScrollPanel) mainTextPanel;
+		Element mainTextPanelContainer = screen.findElementById("main_text_panel_container");
+		int mainTextPanelContainerTopPadding = mainTextPanelContainer.getPaddingTop().getValueAsInt(1)*4;
+		System.out.println("mainTextPanelContainerTopPadding: "+mainTextPanelContainerTopPadding);
 		
-		/*screen.layoutLayers();
-		ScrollPanelControl scrollPanel = screen.findControl("scrollbarPanel", ScrollPanelControl.class);
-		scrollPanel.setUp(0, mainTextPanel.getHeight() / 100.f, 0, mainTextPanel.getHeight() / 10.f, AutoScroll.OFF);
-		scrollPanel.setVerticalPos(0.0f);*/
+		ScrollPanel scrollPanel = screen.findNiftyControl("main_text_scrollbar", ScrollPanel.class);
+		System.out.println("mainTextPanelContainer.getHeight(): "+mainTextPanelContainer.getHeight());
+		mainTextPanel.setConstraintHeight(new SizeValue((mainTextPanelContainer.getHeight()+scrollPanel.getHeight()*2+mainTextPanelContainerTopPadding)+"px"));
+		mainTextPanel.setConstraintWidth(new SizeValue((mainTextPanelContainer.getWidth())+"px"));
 		
-		/*ScrollPanelControl scrollPanel = screen.findControl("main_text_scrollbar", ScrollPanelControl.class);
-		Element mainTextPanel = screen.findElementById("main_text_panel");
-		if (mainTextPanel == null)
-			System.out.println("it's null");
-		if (screen.findElementById("main_text_scrollbar") == null)
-			System.out.println("this is null too");
-		scrollPanel.setUp(0, mainTextPanel.getHeight() / 100.f, 0, mainTextPanel.getHeight() / 10.f, AutoScroll.OFF);
-		scrollPanel.setVerticalPos(0.0f);*/
+		int newTextPanelHeight = mainTextPanel.getConstraintHeight().getValueAsInt(1);
+		System.out.println("newTextPanelHeight: "+newTextPanelHeight);
+		scrollPanel.setHeight(new SizeValue(newTextPanelHeight+"px"));
+		
+		/*
+		//ScrollPanelControl scrollPanel = screen.findControl("main_text_panel", ScrollPanelControl.class);
+		if (scrollPanel == null)
+			System.out.println("it null");
+		else {
+			System.out.println("it NOT null");
+			scrollPanel.setUp(0, mainTextPanel.getHeight() / 100.f, 0, mainTextPanel.getHeight() / 10.f, AutoScroll.TOP);
+			scrollPanel.setVerticalPos(0.0f);
+		}*/
+		
 		//nifty.setDebugOptionPanelColors(true);
 		
 
