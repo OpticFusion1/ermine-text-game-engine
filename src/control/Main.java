@@ -55,7 +55,7 @@ public class Main {
 		Screen screen = nifty.getScreen("start");
 		Element mainText = screen.findElementById("main_text");
 		TextRenderer renderer = mainText.getRenderer(TextRenderer.class);
-		/*renderer.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit quam sed blandit dictum. Duis ultrices "+
+		renderer.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit quam sed blandit dictum. Duis ultrices "+
 				"metus nunc, eget dignissim diam congue non. Suspendisse faucibus, ante id pulvinar laoreet, tellus erat convallis risus, ut "+
 				"rutrum orci tortor vitae magna. Cras hendrerit ut nibh euismod luctus. Sed interdum, mauris sit amet fermentum malesuada, "+
 				"arcu ligula venenatis odio, et vestibulum purus arcu a lacus. Ut pellentesque a ante a bibendum. Class aptent taciti "+
@@ -71,7 +71,7 @@ public class Main {
 				"nec felis id orci pulvinar tincidunt. Phasellus pellentesque sem eu nisi lacinia, pulvinar vestibulum magna ullamcorper.\n\n\n\n"+
 				"\n\n\n\n\n\n\n asdfasd asdg aergvsehert gsetrg\n\n\n\n\n\n"
 				+ "\n\n\n\nfdgasfdgsrfgr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n end\n\nanother one");
-		*/
+		
 		
 		
 		Element mainTextPanel = screen.findElementById("main_text_panel");
