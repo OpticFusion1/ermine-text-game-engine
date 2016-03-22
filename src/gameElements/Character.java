@@ -3,6 +3,7 @@ package gameElements;
 public abstract class Character {
 	protected int hp, maxHp;
 	protected int mana, maxMana;
+	protected int level, experiencePoints, experiencePointsToNextLevel;
 	protected Inventory inventory;
 	protected Attributes attributes;
 	
@@ -15,6 +16,25 @@ public abstract class Character {
 		
 		maxMana = 5;
 		mana = 5;
+		
+		experiencePointsToNextLevel = 100;
+		experiencePoints = 0;
+		level = 0;
+	}
+	
+	// -- HEALTH/HP --
+	public void setMaxHp(int maxHp) {
+		this.maxHp = maxHp;
+	}
+	public int getMaxHp() {
+		return maxHp;
+	}
+	
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	public int getHp() {
+		return hp;
 	}
 	
 	public void subtractHealth(int damage) {
@@ -29,7 +49,7 @@ public abstract class Character {
 			hp = maxHp;
 		}
 	}
-	
+
 	public boolean isDead() {
 		return hp <= 0;
 	}
@@ -40,7 +60,20 @@ public abstract class Character {
 	}
 	
 	
-	// -- getters & setters
+	// -- MANA --
+	public void subtractMana(int m) {
+		mana -= m;
+		if (mana < 0) {
+			mana = 0;
+		}
+	}
+	public void addMana(int m) {
+		mana += m;
+		if (mana > maxMana) {
+			mana = maxMana;
+		}
+	}
+
 	public int getMana() {
 		return mana;
 	}
@@ -55,17 +88,54 @@ public abstract class Character {
 		this.maxMana = maxMana;
 	}
 	
-	public void setMaxHp(int maxHp) {
-		this.maxHp = maxHp;
+	
+	// -- LEVEL --
+	public int getLevel() {
+		return level;
 	}
-	public int getMaxHp() {
-		return maxHp;
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
-	public void setHp(int hp) {
-		this.hp = hp;
+	public boolean readyToLevelUp() {
+		return experiencePoints >= experiencePointsToNextLevel;
 	}
-	public int getHp() {
-		return hp;
+	
+	public void levelUp() {
+		if (experiencePoints > experiencePointsToNextLevel) {
+			experiencePoints -= experiencePointsToNextLevel;
+		} else {
+			experiencePoints = 0;
+		}
+		
+		level++;
+		experiencePointsToNextLevel = experiencePointsToNextLevel * level; // TODO: use level and attributes to determine how much xp will be needed to level up 
 	}
+	
+	
+	// -- EXPERIENCE POINTS --
+	public int getExperiencePoints() {
+		return experiencePoints;
+	}
+	public void setExperiencePoints(int experiencePoints) {
+		this.experiencePoints = experiencePoints;
+	}
+
+	public void addExperiencePoints(int xp) {
+		experiencePoints += xp;
+	}
+	public void subtractExperiencePoints(int xp) {
+		experiencePoints -= xp;
+	}
+	
+	public int getExperiencePointsToNextLevel() {
+		return experiencePointsToNextLevel;
+	}
+	public void setExperiencePointsToNextLevel(int experiencePointsToNextLevel) {
+		this.experiencePointsToNextLevel = experiencePointsToNextLevel;
+	}
+	
+	
+	
+	
 }
