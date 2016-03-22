@@ -1,7 +1,12 @@
 package characters;
 
+import items.Armour;
+import items.Weapon;
+
 public class ImportantCharacter extends Character {
 	protected int experiencePoints, experiencePointsToNextLevel;
+	protected Weapon equippedWeapon = null;
+	protected Armour equippedArmour = null;
 	
 	public ImportantCharacter() {
 		super();
@@ -48,4 +53,24 @@ public class ImportantCharacter extends Character {
 	public void setExperiencePointsToNextLevel(int experiencePointsToNextLevel) {
 		this.experiencePointsToNextLevel = experiencePointsToNextLevel;
 	}
+	
+	
+	// -- WEAPON --
+	public Weapon getEquippedWeapon() {
+		return equippedWeapon;
+	}
+	public void setEquippedWeapon(Weapon equippedWeapon) {
+		this.equippedWeapon = equippedWeapon;
+	}
+	
+	
+	// -- ARMOUR --
+	public Armour getEquippedArmour() {
+		return equippedArmour;
+	}
+	public void setEquippedArmour(Armour equippedArmour) {
+		this.equippedArmour = equippedArmour;
+	}
+	
+	
 }

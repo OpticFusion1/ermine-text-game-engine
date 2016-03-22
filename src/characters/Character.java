@@ -1,6 +1,5 @@
 package characters;
 
-import gameElements.Attributes;
 import gameElements.Inventory;
 
 public abstract class Character {
@@ -8,12 +7,11 @@ public abstract class Character {
 	protected int mana, maxMana;
 	protected int level;
 	protected Inventory inventory;
-	protected Attributes attributes;
+	protected CharacterAttributes attributes;
 	protected String name;
 	
 	public Character() {
 		inventory = new Inventory();
-		attributes = new Attributes();
 		
 		maxHp = 10;
 		hp = 10;
@@ -110,5 +108,20 @@ public abstract class Character {
 	}
 	
 	
+	// -- ATTRIBUTES --
+	public CharacterAttributes getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(CharacterAttributes attributes) {
+		this.attributes = attributes;
+	}
 	
+	
+	// -- INVENTORY --
+	public Inventory getInventory() {
+		return inventory;
+	}
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
 }

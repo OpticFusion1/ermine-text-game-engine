@@ -1,16 +1,15 @@
-package gameElements;
+package characters;
 
-public class Attributes {
+public abstract class CharacterAttributes {
 	protected int strength, speed, stamina, intelligence;
 	
-	public Attributes() {
+	public CharacterAttributes() {
 		strength = 1;
 		speed = 1;
-		stamina = 1;
+		stamina = 1; // what even is stamina
 		intelligence = 1;
 	}
 	
-	// -- getters & setters --
 	public int getStrength() {
 		return strength;
 	}
@@ -31,6 +30,4 @@ public class Attributes {
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
-	
-	
 }

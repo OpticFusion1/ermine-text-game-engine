@@ -1,5 +1,5 @@
 package areas;
 
-public abstract class Area {
+public 	abstract class Area {
 
 }
