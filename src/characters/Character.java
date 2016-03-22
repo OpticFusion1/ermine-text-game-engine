@@ -1,25 +1,37 @@
-package gameElements;
+package characters;
+
+import gameElements.Attributes;
+import gameElements.Inventory;
 
 public abstract class Character {
 	protected int hp, maxHp;
 	protected int mana, maxMana;
-	protected int level, experiencePoints, experiencePointsToNextLevel;
+	protected int level;
 	protected Inventory inventory;
 	protected Attributes attributes;
+	protected String name;
 	
 	public Character() {
 		inventory = new Inventory();
 		attributes = new Attributes();
-
+		
 		maxHp = 10;
 		hp = 10;
 		
 		maxMana = 5;
 		mana = 5;
 		
-		experiencePointsToNextLevel = 100;
-		experiencePoints = 0;
 		level = 0;
+		
+		name = "Default Character Name";
+	}
+	
+	// -- NAME --
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
 	}
 	
 	// -- HEALTH/HP --
@@ -96,45 +108,6 @@ public abstract class Character {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
-	public boolean readyToLevelUp() {
-		return experiencePoints >= experiencePointsToNextLevel;
-	}
-	
-	public void levelUp() {
-		if (experiencePoints > experiencePointsToNextLevel) {
-			experiencePoints -= experiencePointsToNextLevel;
-		} else {
-			experiencePoints = 0;
-		}
-		
-		level++;
-		experiencePointsToNextLevel = experiencePointsToNextLevel * level; // TODO: use level and attributes to determine how much xp will be needed to level up 
-	}
-	
-	
-	// -- EXPERIENCE POINTS --
-	public int getExperiencePoints() {
-		return experiencePoints;
-	}
-	public void setExperiencePoints(int experiencePoints) {
-		this.experiencePoints = experiencePoints;
-	}
-
-	public void addExperiencePoints(int xp) {
-		experiencePoints += xp;
-	}
-	public void subtractExperiencePoints(int xp) {
-		experiencePoints -= xp;
-	}
-	
-	public int getExperiencePointsToNextLevel() {
-		return experiencePointsToNextLevel;
-	}
-	public void setExperiencePointsToNextLevel(int experiencePointsToNextLevel) {
-		this.experiencePointsToNextLevel = experiencePointsToNextLevel;
-	}
-	
 	
 	
 	
