@@ -2,15 +2,18 @@ package characters;
 
 import items.Armour;
 import items.Weapon;
+import skills.Skill;
 
 public class ImportantCharacter extends Character {
 	protected int experiencePoints, experiencePointsToNextLevel;
+	protected CharacterSkills skills;
 	protected Weapon equippedWeapon = null;
 	protected Armour equippedArmour = null;
 	
 	public ImportantCharacter() {
 		super();
-
+		
+		skills = new CharacterSkills();
 		experiencePointsToNextLevel = 100;
 		experiencePoints = 0;
 	}
@@ -70,6 +73,15 @@ public class ImportantCharacter extends Character {
 	}
 	public void setEquippedArmour(Armour equippedArmour) {
 		this.equippedArmour = equippedArmour;
+	}
+	
+	
+	// -- SKILLS --
+	public CharacterSkills getSkills() {
+		return skills;
+	}
+	public void setSkills(CharacterSkills skills) {
+		this.skills = skills;
 	}
 	
 	

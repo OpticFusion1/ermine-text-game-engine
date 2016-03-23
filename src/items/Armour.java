@@ -8,16 +8,20 @@ public abstract class Armour extends Gear {
 		rating = 0;
 	}
 	
-	public int getNewAttackDamage(int attackDamage) { // TODO: write better algorithm
-		if (rating == 0) {
-			return 0;
+	// TODO: write better algorithm
+	public int getNewAttackDamage(int attackDamage) {
+		if (rating == 0 || attackDamage == 0) {
+			return attackDamage;
 		}
 		
 		int random = rand.nextInt(rating);
-		if (random >= attackDamage) {
-			return 1;
-		} else {
-			return random;
+		int newAttackDamage = attackDamage - random;
+		
+		// ensure that an attack will always do some damage
+		if (newAttackDamage <= 0) {
+			newAttackDamage = 1;
 		}
+		
+		return newAttackDamage;
 	}
 }

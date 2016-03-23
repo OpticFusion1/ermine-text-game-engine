@@ -1,33 +1,27 @@
 package characters;
 
-public abstract class CharacterAttributes {
-	protected int strength, speed, stamina, intelligence;
+import java.util.ArrayList;
+
+import attributes.Attribute;
+
+public class CharacterAttributes {
+	protected ArrayList<Attribute> attributes;
 	
 	public CharacterAttributes() {
-		strength = 1;
-		speed = 1;
-		stamina = 1; // what even is stamina
-		intelligence = 1;
+		attributes = new ArrayList<Attribute>();
 	}
 	
-	public int getStrength() {
-		return strength;
+	public ArrayList<Attribute> getAttributes() {
+		return attributes;
 	}
-	public void setStrength(int strength) {
-		this.strength = strength;
+	public void setAttributes(ArrayList<Attribute> attributes) {
+		this.attributes = attributes;
 	}
-	
-	public int getSpeed() {
-		return speed;
+
+	public void addAttribute(Attribute attribute) {
+		attributes.add(attribute);
 	}
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	
-	public int getStamina() {
-		return stamina;
-	}
-	public void setStamina(int stamina) {
-		this.stamina = stamina;
+	public void removeAttribute(Attribute attribute) {
+		attributes.remove(attribute);
 	}
 }
