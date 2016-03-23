@@ -3,8 +3,8 @@ package items;
 public abstract class Weapon extends Gear {
 	protected int minimumDamage, maximumDamage;
 	
-	public Weapon() {
-		super();
+	public Weapon(String name) {
+		super(name);
 		minimumDamage = 0;
 		maximumDamage = 1;
 	}

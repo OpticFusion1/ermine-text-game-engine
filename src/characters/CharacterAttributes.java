@@ -1,11 +1,9 @@
 package characters;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import attributes.Attribute;
 
-// TODO: make "attributes" a hash with the names of the attributes as the key
 public class CharacterAttributes {
 	protected HashMap<String, Attribute> attributes;
 	
@@ -25,5 +23,13 @@ public class CharacterAttributes {
 	}
 	public void removeAttribute(Attribute attribute) {
 		removeAttribute(attribute.getName());
+	}
+	
+	public void setAttributeValue(String attributeName, int value) {
+		attributes.get(attributeName).setValue(value);
+	}
+	
+	public boolean attributeExists(String attributeName) {
+		return getAttribute(attributeName) != null;
 	}
 }

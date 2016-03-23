@@ -1,7 +1,7 @@
 package attributes;
 
 public abstract class Attribute {
-	protected final String name;
+	protected final String name; // this must be unique between the attribute classes
 	protected int value, maxValue;
 	
 	public Attribute(String name, int value) {
@@ -13,12 +13,12 @@ public abstract class Attribute {
 	public String getName() {
 		return name;
 	}
-	
-	public int getValue() {
-		return value;
-	}
+
 	public void setValue(int value) {
 		this.value = value;
+	}
+	public int getValue() {
+		return value;
 	}
 	
 	public int getMaxValue() {

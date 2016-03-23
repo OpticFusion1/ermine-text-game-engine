@@ -1,19 +1,9 @@
 package classes;
 
-import java.util.ArrayList;
+import characters.CharacterDescriptor;
 
-import attributes.AttributeModifier;
-
-public abstract class CharacterClass {
-	protected final String name;
-	protected ArrayList<AttributeModifier> attributeModifiers;
-	
-	public CharacterClass(String name) {
-		this.name = name;
-		attributeModifiers = new ArrayList<AttributeModifier>();
-	}
-	
-	public String getName() {
-		return name;
+public class CharacterClass extends CharacterDescriptor {
+	public CharacterClass(String name, String description) {
+		super(name, description);
 	}
 }

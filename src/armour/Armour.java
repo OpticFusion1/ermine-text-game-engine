@@ -5,8 +5,8 @@ import items.Gear;
 public abstract class Armour extends Gear {
 	protected final int rating;
 	
-	public Armour(int rating) {
-		super();
+	public Armour(String name, int rating) {
+		super(name);
 		this.rating = rating;
 	}
 	

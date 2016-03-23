@@ -5,7 +5,10 @@ import armour.FootArmour;
 import armour.HandArmArmour;
 import armour.HeadArmour;
 import armour.LegArmour;
+import attributes.Attribute;
+import classes.CharacterClass;
 import items.Weapon;
+import races.Race;
 import skills.Skill;
 
 public class ImportantCharacter extends Character {
@@ -18,8 +21,8 @@ public class ImportantCharacter extends Character {
 	protected LegArmour equippedLegArmour = null;
 	protected HeadArmour equippedHeadArmour = null;
 	
-	public ImportantCharacter() {
-		super();
+	public ImportantCharacter(String name, Race race, CharacterClass charClass) {
+		super(name, race, charClass);
 		
 		skills = new CharacterSkills();
 		experiencePointsToNextLevel = 100;
@@ -38,8 +41,9 @@ public class ImportantCharacter extends Character {
 			experiencePoints = 0;
 		}
 		
-		level++;
-		experiencePointsToNextLevel = experiencePointsToNextLevel * level; // TODO: use level and attributes to determine how much xp will be needed to level up 
+		Attribute level = attributes.getAttribute("level");
+		level.add(1);
+		experiencePointsToNextLevel = experiencePointsToNextLevel * level.getValue(); // TODO: use level and attributes to determine how much xp will be needed to level up 
 	}
 	
 	
@@ -76,11 +80,32 @@ public class ImportantCharacter extends Character {
 	
 	
 	// -- ARMOUR --
-	public Armour getEquippedArmour() {
-		return equippedArmour;
+	public HandArmArmour getEquippedHandArmArmour() {
+		return equippedHandArmArmour;
 	}
-	public void setEquippedArmour(Armour equippedArmour) {
-		this.equippedArmour = equippedArmour;
+	public void setEquippedHandArmArmour(HandArmArmour equippedHandArmArmour) {
+		this.equippedHandArmArmour = equippedHandArmArmour;
+	}
+	
+	public FootArmour getEquippedFootArmour() {
+		return equippedFootArmour;
+	}
+	public void setEquippedFootArmour(FootArmour equippedFootArmour) {
+		this.equippedFootArmour = equippedFootArmour;
+	}
+	
+	public LegArmour getEquippedLegArmour() {
+		return equippedLegArmour;
+	}
+	public void setEquippedLegArmour(LegArmour equippedLegArmour) {
+		this.equippedLegArmour = equippedLegArmour;
+	}
+	
+	public HeadArmour getEquippedHeadArmour() {
+		return equippedHeadArmour;
+	}
+	public void setEquippedHeadArmour(HeadArmour equippedHeadArmour) {
+		this.equippedHeadArmour = equippedHeadArmour;
 	}
 	
 	

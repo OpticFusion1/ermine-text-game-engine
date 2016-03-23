@@ -1,8 +1,7 @@
 package attributes;
 
 public class Intelligence extends Attribute {
-	public Intelligence() {
-		super();
-		name = "Intelligence";
+	public Intelligence(int value) {
+		super("Intelligence", value);
 	}
 }

@@ -1,8 +1,7 @@
 package attributes;
 
 public class Stamina extends Attribute {
-	public Stamina() {
-		super();
-		name = "Stamina";
+	public Stamina(int value) {
+		super("Stamina", value);
 	}
 }

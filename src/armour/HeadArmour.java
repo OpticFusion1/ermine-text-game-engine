@@ -1,8 +1,7 @@
 package armour;
 
 public abstract class HeadArmour extends Armour {
-	public HeadArmour() {
-		super();
-		name = "Default Head Armour";
+	public HeadArmour(String name, int rating) {
+		super(name, rating);
 	}
 }

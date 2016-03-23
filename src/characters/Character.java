@@ -1,27 +1,26 @@
 package characters;
 
-import attributes.Health;
-import attributes.Level;
-import attributes.Mana;
+import attributes.Attribute;
+import attributes.AttributeModifier;
+import attributes.AttributeModifierGroup;
+import classes.CharacterClass;
 import gameElements.Inventory;
+import races.Race;
 
 public abstract class Character {
-	protected final Health health;
-	protected final Mana mana;
-	protected final Level level;
 	protected Inventory inventory;
 	protected CharacterAttributes attributes;
+	protected AttributeModifierGroup attributeModifiers;
 	protected String name;
+	protected final Race race;
+	protected final CharacterClass charClass;
 	
-	public Character(String name) {
-		inventory = new Inventory();
-		attributes = new CharacterAttributes();
-
-		health = new Health(10);
-		mana = new Mana(5);
-		level = new Level(0);
-		
+	public Character(String name, Race race, CharacterClass charClass) {
+		this.charClass = charClass;
+		this.race = race;
 		this.name = name;
+		
+		inventory = new Inventory();
 	}
 	
 	// -- NAME --
@@ -34,20 +33,26 @@ public abstract class Character {
 	
 	// -- HEALTH/HP --
 	public boolean isDead() {
-		return health.getValue() <= 0;
+		return getAttribute("health").getValue() <= 0;
 	}
 	
 	public boolean subtractHealthAndCheckIfDead(int damage) {
-		health.subtract(damage);
+		getAttribute("health").subtract(damage);
 		return isDead();
 	}
 	
 	// -- ATTRIBUTES --
-	public CharacterAttributes getAttributes() {
-		return attributes;
+	public Attribute getAttribute(String attributeName) {
+		return attributes.getAttribute(attributeName);
 	}
-	public void setAttributes(CharacterAttributes attributes) {
-		this.attributes = attributes;
+	public void addAttribute(Attribute attribute) {
+		attributes.addAttribute(attribute);
+	}
+	public void removeAttribute(Attribute attribute) {
+		attributes.removeAttribute(attribute);
+	}
+	public void setAttributeValue(String attributeName, int value) {
+		attributes.setAttributeValue(attributeName, value);
 	}
 	
 	

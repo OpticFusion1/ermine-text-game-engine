@@ -3,27 +3,22 @@ package statusEffects;
 import java.util.ArrayList;
 
 import attributes.AttributeModifier;
+import attributes.AttributeModifierGroup;
 
 public abstract class StatusEffect {
-	protected String name;
-	protected ArrayList<AttributeModifier> modifiers;
+	protected final String name;
+	protected AttributeModifierGroup modifiers;
 	
-	public StatusEffect() {
-		name = "Default Status Effect Name";
-		modifiers = new ArrayList<AttributeModifier>();
+	public StatusEffect(String name) {
+		this.name = name;
+		modifiers = new AttributeModifierGroup();
 	}
 	
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public ArrayList<AttributeModifier> getModifiers() {
-		return modifiers;
-	}
-	public void setModifiers(ArrayList<AttributeModifier> modifiers) {
-		this.modifiers = modifiers;
+
+	public AttributeModifier getModifier(String attributeName) {
+		return modifiers.getModifier(attributeName);
 	}
 }
