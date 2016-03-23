@@ -6,10 +6,10 @@ import java.util.Random;
 public abstract class Gear extends Item {
 	protected int endurance, maxEndurance; // TODO: come up with better term for how much damage gear has
 	protected boolean repairable;
-	protected Random rand = new Random();
+	protected final Random rand = new Random();
 	
-	public Gear() {
-		super();
+	public Gear(String name) {
+		super(name);
 		endurance = 10;
 		maxEndurance = 10;
 		repairable = true;

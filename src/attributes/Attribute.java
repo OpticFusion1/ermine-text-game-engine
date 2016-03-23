@@ -1,19 +1,17 @@
 package attributes;
 
 public abstract class Attribute {
-	protected String name;
-	protected int value;
+	protected final String name;
+	protected int value, maxValue;
 	
-	public Attribute() {
-		name = "Default Attribute Name";
-		value = 0;
+	public Attribute(String name, int value) {
+		this.name = name;
+		this.value = value;
+		maxValue = value;
 	}
 	
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public int getValue() {
@@ -23,4 +21,23 @@ public abstract class Attribute {
 		this.value = value;
 	}
 	
+	public int getMaxValue() {
+		return maxValue;
+	}
+	public void setMaxValue(int maxValue) {
+		this.maxValue = maxValue;
+	}
+	
+	public void subtract(int sub) {
+		value -= sub;
+		if (value < 0) {
+			value = 0;
+		}
+	}
+	public void add(int add) {
+		value += add;
+		if (value > maxValue) {
+			value = maxValue;
+		}
+	}
 }

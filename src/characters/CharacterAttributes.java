@@ -1,27 +1,29 @@
 package characters;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import attributes.Attribute;
 
+// TODO: make "attributes" a hash with the names of the attributes as the key
 public class CharacterAttributes {
-	protected ArrayList<Attribute> attributes;
+	protected HashMap<String, Attribute> attributes;
 	
 	public CharacterAttributes() {
-		attributes = new ArrayList<Attribute>();
+		attributes = new HashMap<String, Attribute>();
 	}
 	
-	public ArrayList<Attribute> getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(ArrayList<Attribute> attributes) {
-		this.attributes = attributes;
+	public Attribute getAttribute(String attributeName) {
+		return attributes.get(attributeName);
 	}
 
 	public void addAttribute(Attribute attribute) {
-		attributes.add(attribute);
+		attributes.put(attribute.getName(), attribute);
+	}
+	public void removeAttribute(String attributeName) {
+		attributes.remove(attributeName);
 	}
 	public void removeAttribute(Attribute attribute) {
-		attributes.remove(attribute);
+		removeAttribute(attribute.getName());
 	}
 }

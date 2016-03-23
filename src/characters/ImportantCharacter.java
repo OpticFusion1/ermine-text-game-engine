@@ -1,6 +1,10 @@
 package characters;
 
-import items.Armour;
+import armour.Armour;
+import armour.FootArmour;
+import armour.HandArmArmour;
+import armour.HeadArmour;
+import armour.LegArmour;
 import items.Weapon;
 import skills.Skill;
 
@@ -8,7 +12,11 @@ public class ImportantCharacter extends Character {
 	protected int experiencePoints, experiencePointsToNextLevel;
 	protected CharacterSkills skills;
 	protected Weapon equippedWeapon = null;
-	protected Armour equippedArmour = null;
+
+	protected HandArmArmour equippedHandArmArmour = null;
+	protected FootArmour equippedFootArmour = null;
+	protected LegArmour equippedLegArmour = null;
+	protected HeadArmour equippedHeadArmour = null;
 	
 	public ImportantCharacter() {
 		super();

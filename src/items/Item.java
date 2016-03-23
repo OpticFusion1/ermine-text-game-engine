@@ -1,18 +1,15 @@
 package items;
 
 public abstract class Item {
-	protected String name;
+	protected final String name;
 	
-	public Item() {
-		name = "Default Item Name";
+	public Item(String name) {
+		this.name = name;
 	}
 	
 	
 	// -- NAME --
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 }

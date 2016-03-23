@@ -1,11 +1,13 @@
-package items;
+package armour;
+
+import items.Gear;
 
 public abstract class Armour extends Gear {
-	protected int rating;
+	protected final int rating;
 	
-	public Armour() {
+	public Armour(int rating) {
 		super();
-		rating = 0;
+		this.rating = rating;
 	}
 	
 	// TODO: write better algorithm
@@ -23,5 +25,9 @@ public abstract class Armour extends Gear {
 		}
 		
 		return newAttackDamage;
+	}
+	
+	public int getRating() {
+		return rating;
 	}
 }
