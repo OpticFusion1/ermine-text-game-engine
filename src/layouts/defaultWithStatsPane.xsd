@@ -3,7 +3,7 @@
 	<useStyles filename="nifty-default-styles.xml" />
 	<useControls filename="nifty-default-controls.xml" />
 	
-	<screen id="start">
+	<screen id="start" controller="control.ScreenController2">
 		<layer childLayout="vertical">
 			<panel id="main_text_panel_container" childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
 				<control id="main_text_scrollbar" name="scrollPanel" horizontal="false" height="100%">
@@ -23,7 +23,9 @@
 					<panel childLayout="horizontal">
 						<panel id="northwest" childLayout="center" />
 						<panel childLayout="center">
-							<control id="north" type="button" width="80%" height="80%" label="North"></control>
+							<control id="north" type="button" width="80%" height="80%" label="North">
+								<interact onClick="northTest()" />
+							</control>
 						</panel>
 						<panel id="northeast" childLayout="center" />
 					</panel>

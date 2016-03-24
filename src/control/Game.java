@@ -1,9 +1,5 @@
 package control;
 
-import javax.swing.JFrame;
-
-import de.lessvoid.nifty.renderer.lwjgl.input.LwjglInputSystem;
-
 public class Game {
 	//private DisplayAreas displayAreas;
 	

@@ -1,7 +1,6 @@
 package characters;
 
 import attributes.Attribute;
-import attributes.AttributeModifier;
 import attributes.AttributeModifierGroup;
 import classes.CharacterClass;
 import gameElements.Inventory;
@@ -42,8 +41,16 @@ public abstract class Character {
 	}
 	
 	// -- ATTRIBUTES --
-	public Attribute getAttribute(String attributeName) {
-		return attributes.getAttribute(attributeName);
+	public int getBaseAttributeValue(String attributeName) {
+		return attributes.getAttribute(attributeName).getValue();
+	}
+	public int getModifiedAttributeValue(String attributeName) {
+		Attribute attribute = attributes.getAttribute(attributeName);
+		return attributeModifiers.getAttributeValue(attribute);
+	}
+	protected Attribute getAttribute(String attributeName) {
+		Attribute attribute = attributes.getAttribute(attributeName);
+		return attribute;
 	}
 	public void addAttribute(Attribute attribute) {
 		attributes.addAttribute(attribute);

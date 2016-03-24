@@ -43,82 +43,13 @@ public class Main {
 		initGL();
 		LwjglInputSystem inputSystem = initInput();
 		Nifty nifty = initNifty(inputSystem);
-		nifty.loadStyleFile("nifty-default-styles.xml");
-		nifty.loadControlFile("nifty-default-controls.xml");
-
-		//createIntroScreen(nifty, new ExitButtonScreenController());
-		//DefaultScreenLayoutManager screenLayoutManager = new DefaultScreenLayoutManager(nifty, new ExitButtonScreenController());
-		//screenLayoutManager.build();
-
-		//nifty.fromXml("layouts/default.xsd", "start", new ExitButtonScreenController());
-		nifty.fromXml("layouts/defaultWithStatsPane.xsd", "start", new ExitButtonScreenController());
-		Screen screen = nifty.getScreen("start");
-		Element mainText = screen.findElementById("main_text");
-		TextRenderer renderer = mainText.getRenderer(TextRenderer.class);
-		renderer.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit quam sed blandit dictum. Duis ultrices "+
-				"metus nunc, eget dignissim diam congue non. Suspendisse faucibus, ante id pulvinar laoreet, tellus erat convallis risus, ut "+
-				"rutrum orci tortor vitae magna. Cras hendrerit ut nibh euismod luctus. Sed interdum, mauris sit amet fermentum malesuada, "+
-				"arcu ligula venenatis odio, et vestibulum purus arcu a lacus. Ut pellentesque a ante a bibendum. Class aptent taciti "+
-				"sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur mollis justo quis metus facilisis, "+
-				"et viverra enim ullamcorper. Nullam consectetur massa et leo facilisis egestas. Nulla urna risus, aliquam a turpis "+
-				"vitae, auctor suscipit ex. Integer venenatis nisi tortor, nec malesuada mi eleifend sit amet. Nam eu congue magna.\n\n\n"+
-				"Curabitur consequat ante orci, vitae maximus justo tristique ullamcorper. Donec non scelerisque felis. Nullam luctus ex "+
-				"nibh, sed fringilla nibh blandit in. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. "+
-				"Donec suscipit vulputate dui, sit amet facilisis justo volutpat nec. Aliquam vel rhoncus lectus. Donec cursus, augue quis "+
-				"eleifend molestie, est leo tempor leo, pellentesque faucibus libero mauris a mi. Duis dictum hendrerit elit, quis sagittis "+
-				"elit. Suspendisse ornare eleifend orci, id commodo ligula cursus in. Pellentesque non tellus semper, euismod ante et, "+
-				"feugiat velit. Suspendisse ex nulla, suscipit sed erat consequat, congue luctus diam. Sed id luctus sapien. Suspendisse "+
-				"nec felis id orci pulvinar tincidunt. Phasellus pellentesque sem eu nisi lacinia, pulvinar vestibulum magna ullamcorper.\n\n\n\n"+
-				"\n\n\n\n\n\n\n asdfasd asdg aergvsehert gsetrg\n\n\n\n\n\n"
-				+ "\n\n\n\nfdgasfdgsrfgr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n end\n\nanother one");
 		
+		ScreenController2 controller = new ScreenController2(nifty);
 		
-		
-		Element mainTextPanel = screen.findElementById("main_text_panel");
-		Element mainTextPanelContainer = screen.findElementById("main_text_panel_container");
-		int mainTextPanelContainerTopPadding = mainTextPanelContainer.getPaddingTop().getValueAsInt(1)*4;
-		System.out.println("mainTextPanelContainerTopPadding: "+mainTextPanelContainerTopPadding);
-		
-		ScrollPanel scrollPanel = screen.findNiftyControl("main_text_scrollbar", ScrollPanel.class);
-		System.out.println("mainTextPanelContainer.getHeight(): "+mainTextPanelContainer.getHeight());
-		mainTextPanel.setConstraintHeight(new SizeValue((mainTextPanelContainer.getHeight()+scrollPanel.getHeight()*2+mainTextPanelContainerTopPadding)+"px"));
-		mainTextPanel.setConstraintWidth(new SizeValue((mainTextPanelContainer.getWidth())+"px"));
-		
-		int newTextPanelHeight = mainTextPanel.getConstraintHeight().getValueAsInt(1);
-		System.out.println("newTextPanelHeight: "+newTextPanelHeight);
-		scrollPanel.setHeight(new SizeValue(newTextPanelHeight+"px"));
-		
-		/*
-		//ScrollPanelControl scrollPanel = screen.findControl("main_text_panel", ScrollPanelControl.class);
-		if (scrollPanel == null)
-			System.out.println("it null");
-		else {
-			System.out.println("it NOT null");
-			scrollPanel.setUp(0, mainTextPanel.getHeight() / 100.f, 0, mainTextPanel.getHeight() / 10.f, AutoScroll.TOP);
-			scrollPanel.setVerticalPos(0.0f);
-		}*/
-		
-		//nifty.setDebugOptionPanelColors(true);
-		
-
-		//nifty.gotoScreen("start");
-		//nifty.gotoScreen("main_game");
 		renderLoop(nifty);
 		shutDown(inputSystem);
 	}
-
-	public static class ExitButtonScreenController extends DefaultScreenController {
-		@NiftyEventSubscriber(id="exit")
-		public void exit(final String id, final ButtonClickedEvent event) {
-			nifty.exit();
-		}
-		
-		@NiftyEventSubscriber(id="exit2")
-		public void exit2(final String id, final ButtonClickedEvent event) {
-			nifty.exit();
-		}
-	}
-
+	
 	private static LwjglInputSystem initInput() throws Exception {
 		LwjglInputSystem inputSystem = new LwjglInputSystem();
 		inputSystem.startup();
@@ -172,7 +103,7 @@ public class Main {
 		Display.setFullscreen(false);
 		Display.create(new PixelFormat(), new ContextAttribs(3, 2).withProfileCore(true));
 		Display.setVSyncEnabled(false);
-		Display.setTitle("Hello Nifty");
+		Display.setTitle("Ermine");
 	}
 	
 	private static void initGL() {
