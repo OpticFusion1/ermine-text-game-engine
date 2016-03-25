@@ -3,7 +3,7 @@
 	<useStyles filename="nifty-default-styles.xml" />
 	<useControls filename="nifty-default-controls.xml" />
 	
-	<screen id="start" controller="control.ScreenController2">
+	<screen id="start" controller="control.ErmineNavigationScreenController">
 		<layer childLayout="vertical">
 			<panel id="main_text_panel_container" childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
 				<control id="main_text_scrollbar" name="scrollPanel" horizontal="false" height="100%">
@@ -24,7 +24,7 @@
 						<panel id="northwest" childLayout="center" />
 						<panel childLayout="center">
 							<control id="north" type="button" width="80%" height="80%" label="North">
-								<interact onClick="northTest()" />
+								<interact onClick="buttonClick(north)" />
 							</control>
 						</panel>
 						<panel id="northeast" childLayout="center" />
@@ -32,20 +32,28 @@
 					
 					<panel childLayout="horizontal">
 						<panel childLayout="center">
-							<control id="west" type="button" width="80%" height="80%" label="West"></control>
+							<control id="west" type="button" width="80%" height="80%" label="West">
+								<interact onClick="buttonClick(west)" />
+							</control>
 						</panel>
 						<panel childLayout="center">
-							<control id="center" type="button" width="80%" height="80%" label="Center"></control>
+							<control id="center" type="button" width="80%" height="80%" label="Center">
+								<interact onClick="buttonClick(center)" />
+							</control>
 						</panel>
 						<panel childLayout="center">
-							<control id="east" type="button" width="80%" height="80%" label="East"></control>
+							<control id="east" type="button" width="80%" height="80%" label="East">
+								<interact onClick="buttonClick(east)" />
+							</control>
 						</panel>
 					</panel>
 					
 					<panel childLayout="horizontal">
 						<panel id="southwest" />
 						<panel childLayout="center">
-							<control id="south" type="button" width="80%" height="80%" label="South"></control>
+							<control id="south" type="button" width="80%" height="80%" label="South">
+								<interact onClick="buttonClick(south)" />
+							</control>
 						</panel>
 						<panel id="southeast" childLayout="center" />
 					</panel>

@@ -12,12 +12,13 @@ import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.tools.SizeValue;
 
-public class ScreenController2 implements ScreenController {
+public class ScreenInitializer {
 	private final Nifty nifty;
 	
-	public ScreenController2(Nifty nifty) {
-		super();
+	public ScreenInitializer(Nifty nifty) {
 		this.nifty = nifty;
+		//nifty.loadStyleFile("nifty-default-styles.xml");
+		//nifty.loadControlFile("nifty-default-controls.xml");
 		
 		//loadXML("layouts/default.xsd");
 		loadXML("layouts/defaultWithStatsPane.xsd");
@@ -64,7 +65,6 @@ public class ScreenController2 implements ScreenController {
 	}
 	
 	public class DefaultErmineScreenController extends DefaultScreenController {
-
 		public void northTest() {
 			System.out.println("asdfasdfae north");
 		}
@@ -94,23 +94,5 @@ public class ScreenController2 implements ScreenController {
 		public void center(final String id, final ButtonClickedEvent event) {
 			System.out.println("center");
 		}
-	}
-
-	@Override
-	public void bind(Nifty arg0, Screen arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onEndScreen() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onStartScreen() {
-		// TODO Auto-generated method stub
-		
 	}
 }

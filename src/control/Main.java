@@ -44,7 +44,7 @@ public class Main {
 		LwjglInputSystem inputSystem = initInput();
 		Nifty nifty = initNifty(inputSystem);
 		
-		ScreenController2 controller = new ScreenController2(nifty);
+		ScreenInitializer screenInitializer = new ScreenInitializer(nifty);
 		
 		renderLoop(nifty);
 		shutDown(inputSystem);
