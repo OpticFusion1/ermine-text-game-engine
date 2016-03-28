@@ -37,17 +37,24 @@ public class Main {
 	// http://niftyeditor.it/downloads/
 	private static final int WIDTH = 1024;
 	private static final int HEIGHT = 768;
+	private static Nifty nifty;
 	
 	public static void main(final String[] args) throws Exception {
 		initLWJGL();
 		initGL();
 		LwjglInputSystem inputSystem = initInput();
-		Nifty nifty = initNifty(inputSystem);
+		nifty = initNifty(inputSystem);
 		
 		ScreenInitializer screenInitializer = new ScreenInitializer(nifty);
+		Game game = new Game();
+		game.startGame();
 		
 		renderLoop(nifty);
 		shutDown(inputSystem);
+	}
+	
+	public static Nifty getNiftyInstance() {
+		return nifty;
 	}
 	
 	private static LwjglInputSystem initInput() throws Exception {
