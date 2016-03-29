@@ -1,15 +1,10 @@
 package control;
 
 import de.lessvoid.nifty.Nifty;
-import de.lessvoid.nifty.NiftyEventSubscriber;
-import de.lessvoid.nifty.controls.ButtonClickedEvent;
-import de.lessvoid.nifty.controls.Controller;
 import de.lessvoid.nifty.controls.ScrollPanel;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.TextRenderer;
-import de.lessvoid.nifty.screen.DefaultScreenController;
 import de.lessvoid.nifty.screen.Screen;
-import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.tools.SizeValue;
 
 public class ScreenInitializer {
@@ -28,7 +23,7 @@ public class ScreenInitializer {
 	}
 	
 	public void loadXML(String fileName) {
-		nifty.fromXml(fileName, "start", new DefaultErmineScreenController());
+		nifty.fromXml(fileName, "navigation");
 	}
 	
 	public void setMainText(String text) {
@@ -58,41 +53,5 @@ public class ScreenInitializer {
 		int newTextPanelHeight = mainTextPanel.getConstraintHeight().getValueAsInt(1);
 		System.out.println("newTextPanelHeight: "+newTextPanelHeight);
 		scrollPanel.setHeight(new SizeValue(newTextPanelHeight+"px"));
-	}
-	
-	public void northTest() {
-		System.out.println("asdfasdfae north");
-	}
-	
-	public class DefaultErmineScreenController extends DefaultScreenController {
-		public void northTest() {
-			System.out.println("asdfasdfae north");
-		}
-		
-		@NiftyEventSubscriber(id="north")
-		public void north(final String id, final ButtonClickedEvent event) {
-			System.out.println("north");
-			nifty.exit();
-		}
-		
-		@NiftyEventSubscriber(id="south")
-		public void south(final String id, final ButtonClickedEvent event) {
-			System.out.println("south");
-		}
-		
-		@NiftyEventSubscriber(id="east")
-		public void east(final String id, final ButtonClickedEvent event) {
-			System.out.println("east");
-		}
-		
-		@NiftyEventSubscriber(id="west")
-		public void west(final String id, final ButtonClickedEvent event) {
-			System.out.println("west");
-		}
-		
-		@NiftyEventSubscriber(id="center")
-		public void center(final String id, final ButtonClickedEvent event) {
-			System.out.println("center");
-		}
 	}
 }

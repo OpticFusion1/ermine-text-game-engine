@@ -21,11 +21,9 @@ public class ErmineNavigationScreenController implements ScreenController {
 	}
 
 	public void registerAction(ButtonActionHandler handler, NavigationPanelButtons buttonChoice) {
-		System.out.println("Register action: "+handler+" to button: "+buttonChoice);
 		buttonActionHandlerMap.put(buttonChoice, handler);
 	}
 	public void deregisterAction(NavigationPanelButtons buttonChoice) {
-		System.out.println("Deregister action from button: "+buttonChoice);
 		buttonActionHandlerMap.put(buttonChoice, null);
 	}
 	

@@ -3,7 +3,7 @@
 	<useStyles filename="nifty-default-styles.xml" />
 	<useControls filename="nifty-default-controls.xml" />
 	
-	<screen id="start" controller="control.ErmineNavigationScreenController">
+	<screen id="navigation" controller="control.ErmineNavigationScreenController">
 		<layer childLayout="vertical">
 			<panel id="main_text_panel_container" childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
 				<control id="main_text_scrollbar" name="scrollPanel" horizontal="false" height="100%">
