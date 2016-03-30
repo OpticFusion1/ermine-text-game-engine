@@ -47,7 +47,7 @@ public class ErmineNavigationScreenController implements ScreenController {
 	public void onStartScreen() {
 		System.out.println("Unimplemented (onStartScreen)");
 	}
-
+	
 	private NavigationPanelButtons stringToButtonChoice(String str) {
 		str = str.toLowerCase().trim();
 		switch (str) {

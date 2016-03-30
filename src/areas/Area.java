@@ -10,7 +10,7 @@ public abstract class Area {
 	public Area() {
 		navigationControl = ErmineNavigationScreenController.getInstance();
 	}
-
+	
 	protected void deregisterNorthAction() {
 		System.out.println("deregister north");
 		navigationControl.deregisterAction(NavigationPanelButtons.NORTH);
