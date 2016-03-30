@@ -5,6 +5,8 @@ import java.util.HashMap;
 import control.ButtonActionHandler;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.controls.Button;
+import de.lessvoid.nifty.elements.Element;
+import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 
@@ -17,7 +19,11 @@ public class ErmineNavigationScreenController implements ScreenController {
 	}
 	
 	public static ErmineNavigationScreenController getInstance() {
-		return (ErmineNavigationScreenController) Main.getNiftyInstance().getCurrentScreen().getScreenController();
+		return (ErmineNavigationScreenController) Main.getNiftyInstance().getScreen("navigation").getScreenController();
+	}
+	
+	private Screen getNavigationScreen() {
+		return Main.getNiftyInstance().getScreen("navigation");
 	}
 
 	public void registerAction(ButtonActionHandler handler, NavigationPanelButtons buttonChoice) {
@@ -99,9 +105,26 @@ public class ErmineNavigationScreenController implements ScreenController {
 	}
 
 	public void setButtonText(String text, String buttonName) {
-		Button button = Main.getNiftyInstance().getCurrentScreen().findNiftyControl(buttonName, Button.class);
+		Button button = getNavigationScreen().findNiftyControl(buttonName, Button.class);
 		if (button != null) {
 			button.setText(text);
 		}
+	}
+
+	public void setRowText(String text, String rowName) {
+		setElementText(text, rowName+"_text");
+	}
+	public void setRowLabel(String text, String rowName) {
+		setElementText(text, rowName+"_label");
+	}
+	private void setElementText(String text, String elementName) {
+		Screen screen = getNavigationScreen();
+		Element mainText = screen.findElementById(elementName);
+		if (mainText == null) {
+			System.err.println("Screen \""+elementName+"\" not found!");
+			return;
+		}
+		TextRenderer renderer = mainText.getRenderer(TextRenderer.class);
+		renderer.setText(text);
 	}
 }

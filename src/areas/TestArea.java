@@ -9,11 +9,13 @@ public class TestArea extends Area {
 	
 	public TestArea() {
 		super();
+		navigationControl.setButtonText("Change row 1 text", "west");
+		navigationControl.setButtonText("Toggle north text/action", "center");
 		
 		northController = new NorthController();
 		
 		registerNorthAction(northController);
-		registerWestAction(new WestController());
+		registerWestAction(new WestController(this));
 		registerSouthAction(new SouthController());
 		registerEastAction(new EastController());
 		registerCenterAction(new CenterController(this));
@@ -33,9 +35,19 @@ public class TestArea extends Area {
 		}
 	}
 	public class WestController implements ButtonActionHandler {
+		private int num = 0;
+		private TestArea area;
+		public WestController(TestArea area) {
+			this.area = area;
+		}
+		
 		@Override
 		public void execute() {
 			System.out.println("West Execute!");
+
+			area.navigationControl.setRowLabel("Row Label"+num, "row1");
+			area.navigationControl.setRowText("Row Text"+num, "row1");
+			num++;
 		}
 	}
 	public class EastController implements ButtonActionHandler {
