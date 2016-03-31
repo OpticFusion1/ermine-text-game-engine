@@ -18,7 +18,6 @@ public class ScreenInitializer {
 		//loadXML("layouts/default.xsd");
 		loadXML("layouts/defaultWithStatsPane.xsd");
 		
-		System.out.println("aaaskakskkdskd butts");
 		refreshMainTextPanelSize();
 	}
 	

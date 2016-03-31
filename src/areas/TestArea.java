@@ -65,15 +65,8 @@ public class TestArea extends Area {
 		@Override
 		public void execute() {
 			System.out.println("Center Execute!");
-			if (area.navigationControl.hasAction(NavigationPanelButtons.NORTH)) {
-				System.out.println("north has action");
-				area.deregisterNorthAction();
-				area.navigationControl.setButtonText("ayy lmao", "north");
-			} else {
-				System.out.println("north does not have action");
-				area.registerNorthAction(northController);
-				area.navigationControl.setButtonText("NORTH", "north");
-			}
+			area.navigationControl.setMainText("Inventory Test");
+			//area.navigationControl.go
 		}
 	}
 }

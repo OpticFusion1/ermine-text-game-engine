@@ -127,4 +127,8 @@ public class ErmineNavigationScreenController implements ScreenController {
 		TextRenderer renderer = mainText.getRenderer(TextRenderer.class);
 		renderer.setText(text);
 	}
+	
+	public void setMainText(String text) {
+		ErmineScreenControllerFunctions.getInstance().setMainText(text);
+	}
 }

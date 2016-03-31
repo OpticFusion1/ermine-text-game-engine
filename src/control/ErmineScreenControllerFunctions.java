@@ -8,16 +8,22 @@ import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.tools.SizeValue;
 
-public class ErmineScreenController implements ScreenController {
+// Common functions used by the Ermine Screen Controllers
+// This is necessary because for some reason Nifty cannot find a ScreenController that extends another class
+public class ErmineScreenControllerFunctions {
 	private final Nifty nifty;
+	private static ErmineScreenControllerFunctions instance = null;
 	
-	public ErmineScreenController() {
+	protected ErmineScreenControllerFunctions() {
 		nifty = Main.getNiftyInstance();
 		refreshMainTextPanelSize();
 	}
 	
-	public static ErmineScreenController getInstance() {
-		return (ErmineScreenController) Main.getNiftyInstance().getCurrentScreen().getScreenController();
+	public static ErmineScreenControllerFunctions getInstance() {
+		if (instance == null) {
+			instance = new ErmineScreenControllerFunctions();
+		}
+		return instance;
 	}
 	
 	public void setMainText(String text) {
@@ -49,29 +55,10 @@ public class ErmineScreenController implements ScreenController {
 		scrollPanel.setHeight(new SizeValue(newTextPanelHeight+"px"));
 	}
 	
-
-	@Override
-	public void bind(Nifty arg0, Screen arg1) {
-		System.out.println("Unimplemented (bind)");
+	public void goToInventoryScreen() {
+		nifty.gotoScreen("inventory");
 	}
-
-	@Override
-	public void onEndScreen() {
-		System.out.println("Unimplemented (onEndScreen)");
-	}
-
-	@Override
-	public void onStartScreen() {
-		System.out.println("Unimplemented (onStartScreen)");
-	}
-	
-	
-	// this is called by nifty, as defined in the XML layout
-	public void buttonClick(String buttonClicked) {
-		System.out.println("ErmineScreenControl "+buttonClicked);
-		String controllerName = buttonClicked.substring(0,2);
-		System.out.println(controllerName);
-		String buttonClickedName = buttonClicked.substring(2);
-		System.out.println(buttonClickedName);
+	public void goToNavigationScreen() {
+		nifty.gotoScreen("navigation");
 	}
 }
