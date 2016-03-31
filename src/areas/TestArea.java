@@ -66,7 +66,7 @@ public class TestArea extends Area {
 		public void execute() {
 			System.out.println("Center Execute!");
 			area.navigationControl.setMainText("Inventory Test");
-			//area.navigationControl.go
+			area.navigationControl.goToInventoryScreen();
 		}
 	}
 }

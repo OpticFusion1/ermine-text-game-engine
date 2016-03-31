@@ -10,20 +10,21 @@ import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 
-public class ErmineNavigationScreenController implements ScreenController {
+//TODO: this whole class
+public class ErmineInventoryScreenController implements ScreenController {
 	public enum NavigationPanelButtons {NORTH, SOUTH, EAST, WEST, CENTER};
 	protected HashMap<NavigationPanelButtons, ButtonActionHandler> buttonActionHandlerMap; 
 	
-	public ErmineNavigationScreenController() {
+	public ErmineInventoryScreenController() {
 		buttonActionHandlerMap = new HashMap<NavigationPanelButtons, ButtonActionHandler>();
 	}
 	
-	public static ErmineNavigationScreenController getInstance() {
-		return (ErmineNavigationScreenController) Main.getNiftyInstance().getScreen("navigation").getScreenController();
+	public static ErmineInventoryScreenController getInstance() {
+		return (ErmineInventoryScreenController) Main.getNiftyInstance().getScreen("inventory").getScreenController();
 	}
 	
 	private Screen getNavigationScreen() {
-		return Main.getNiftyInstance().getScreen("navigation");
+		return Main.getNiftyInstance().getScreen("inventory");
 	}
 
 	public void registerAction(ButtonActionHandler handler, NavigationPanelButtons buttonChoice) {

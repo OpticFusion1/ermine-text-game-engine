@@ -93,7 +93,6 @@
 		</layer>
 	</screen>
 	
-	<!-- 
 	<screen id="inventory" controller="control.ErmineInventoryScreenController">
 		<layer childLayout="vertical">
 			<panel id="main_text_panel_container" childLayout="vertical" backgroundColor="#f008" padding="20px" height="75%" width="100%">
@@ -109,7 +108,7 @@
 				</control>
 			</panel>
 		</layer>
-	</screen>-->
+	</screen>
 	
 	
 </nifty>
