@@ -38,7 +38,7 @@ public class ErmineScreenControllerFunctions {
 		refreshMainTextPanelSize();
 	}
 	
-	private void refreshMainTextPanelSize() {
+	public void refreshMainTextPanelSize() {
 		Screen screen = nifty.getCurrentScreen();
 		Element mainTextPanel = screen.findElementById("main_text_panel");
 		Element mainTextPanelContainer = screen.findElementById("main_text_panel_container");

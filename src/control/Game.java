@@ -1,13 +1,22 @@
 package control;
 
 import areas.TestArea;
+import characters.Player;
+import classes.CharacterClass;
+import races.Race;
 
 public class Game {
+	private static Player player;
 	//private DisplayAreas displayAreas;
 	
 	public Game() {
+		player = new Player("TestName", new Race("Human", "Boring boring boring"), new CharacterClass("Peasant", "The lowest of the low"));
 		//displayAreas = new DisplayAreas(screenWidth, screenHeight);
     }
+	
+	public static Player getPlayer() {
+		return player;
+	}
 	
 	public void startGame() {
 		TestArea starterArea = new TestArea();

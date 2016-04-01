@@ -1,15 +1,14 @@
 package characters;
 
-import armour.Armour;
 import armour.FootArmour;
 import armour.HandArmArmour;
 import armour.HeadArmour;
 import armour.LegArmour;
 import attributes.Attribute;
 import classes.CharacterClass;
+import gameElements.Inventory;
 import items.Weapon;
 import races.Race;
-import skills.Skill;
 
 public class ImportantCharacter extends Character {
 	protected int experiencePoints, experiencePointsToNextLevel;

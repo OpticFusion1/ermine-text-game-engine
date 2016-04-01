@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 import items.Item;
 
-public class Inventory {
-	protected ArrayList<Item> inventory;
-	
+public class Inventory extends ArrayList<Item> {
 	public Inventory() {
-		inventory = new ArrayList<Item>(); 
+		super();
 	}
 }

@@ -107,6 +107,51 @@
 					</panel>
 				</control>
 			</panel>
+			
+			
+			<panel childLayout="horizontal" backgroundColor="#000000">
+				<panel id="inventory_panel" childLayout="vertical" backgroundColor="#ffff">
+					<panel childLayout="horizontal">
+						<panel id="northwest" childLayout="center" />
+						<panel childLayout="center">
+							<control id="north" type="button" width="80%" height="80%" label="North">
+								<interact onClick="buttonClick(north)" />
+							</control>
+						</panel>
+						<panel id="northeast" childLayout="center" />
+					</panel>
+					
+					<panel childLayout="horizontal">
+						<panel childLayout="center">
+							<control id="west" type="button" width="80%" height="80%" label="West">
+								<interact onClick="buttonClick(west)" />
+							</control>
+						</panel>
+						<panel childLayout="center">
+							<control id="center" type="button" width="80%" height="80%" label="Center">
+								<interact onClick="buttonClick(center)" />
+							</control>
+						</panel>
+						<panel childLayout="center">
+							<control id="east" type="button" width="80%" height="80%" label="East">
+								<interact onClick="buttonClick(east)" />
+							</control>
+						</panel>
+					</panel>
+					
+					<panel childLayout="horizontal">
+						<panel id="southwest" />
+						<panel childLayout="center">
+							<control id="south" type="button" width="80%" height="80%" label="South">
+								<interact onClick="buttonClick(south)" />
+							</control>
+						</panel>
+						<panel id="southeast" childLayout="center" />
+					</panel>
+				</panel>
+			</panel>
+			
+			
 		</layer>
 	</screen>
 	

@@ -4,6 +4,7 @@ import attributes.Attribute;
 import attributes.AttributeModifierGroup;
 import classes.CharacterClass;
 import gameElements.Inventory;
+import items.Item;
 import races.Race;
 
 public abstract class Character {
@@ -67,7 +68,13 @@ public abstract class Character {
 	public Inventory getInventory() {
 		return inventory;
 	}
-	public void setInventory(Inventory inventory) {
-		this.inventory = inventory;
+	public void addItem(Item item) {
+		inventory.add(item);
+	}
+	public void removeItem(Item item) {
+		inventory.remove(item);
+	}
+	public void removeItem(int index) {
+		inventory.remove(index);
 	}
 }

@@ -2,6 +2,7 @@ package control;
 
 import java.util.HashMap;
 
+import characters.Player;
 import control.ButtonActionHandler;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.controls.Button;
@@ -12,11 +13,12 @@ import de.lessvoid.nifty.screen.ScreenController;
 
 //TODO: this whole class
 public class ErmineInventoryScreenController implements ScreenController {
-	public enum NavigationPanelButtons {NORTH, SOUTH, EAST, WEST, CENTER};
-	protected HashMap<NavigationPanelButtons, ButtonActionHandler> buttonActionHandlerMap; 
+	public enum InventoryPanelButtons {NORTH, SOUTH, EAST, WEST, CENTER, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST};
+	protected HashMap<InventoryPanelButtons, ButtonActionHandler> buttonActionHandlerMap; 
+	private final Player player = Game.getPlayer();
 	
 	public ErmineInventoryScreenController() {
-		buttonActionHandlerMap = new HashMap<NavigationPanelButtons, ButtonActionHandler>();
+		buttonActionHandlerMap = new HashMap<InventoryPanelButtons, ButtonActionHandler>();
 	}
 	
 	public static ErmineInventoryScreenController getInstance() {
@@ -27,10 +29,10 @@ public class ErmineInventoryScreenController implements ScreenController {
 		return Main.getNiftyInstance().getScreen("inventory");
 	}
 
-	public void registerAction(ButtonActionHandler handler, NavigationPanelButtons buttonChoice) {
+	public void registerAction(ButtonActionHandler handler, InventoryPanelButtons buttonChoice) {
 		buttonActionHandlerMap.put(buttonChoice, handler);
 	}
-	public void deregisterAction(NavigationPanelButtons buttonChoice) {
+	public void deregisterAction(InventoryPanelButtons buttonChoice) {
 		buttonActionHandlerMap.put(buttonChoice, null);
 	}
 	
@@ -46,22 +48,30 @@ public class ErmineInventoryScreenController implements ScreenController {
 
 	@Override
 	public void onStartScreen() {
-		System.out.println("Unimplemented (onStartScreen)");
+		ErmineScreenControllerFunctions.getInstance().refreshMainTextPanelSize();
 	}
 	
-	private NavigationPanelButtons stringToButtonChoice(String str) {
+	private InventoryPanelButtons stringToButtonChoice(String str) {
 		str = str.toLowerCase().trim();
 		switch (str) {
 			case "north":
-				return NavigationPanelButtons.NORTH;
+				return InventoryPanelButtons.NORTH;
 			case "south":
-				return NavigationPanelButtons.SOUTH;
+				return InventoryPanelButtons.SOUTH;
 			case "east":
-				return NavigationPanelButtons.EAST;
+				return InventoryPanelButtons.EAST;
 			case "west":
-				return NavigationPanelButtons.WEST;
+				return InventoryPanelButtons.WEST;
 			case "center":
-				return NavigationPanelButtons.CENTER;
+				return InventoryPanelButtons.CENTER;
+			case "southeast":
+				return InventoryPanelButtons.SOUTHEAST;
+			case "southwest":
+				return InventoryPanelButtons.SOUTHWEST;
+			case "northeast":
+				return InventoryPanelButtons.NORTHEAST;
+			case "northwest":
+				return InventoryPanelButtons.NORTHWEST;
 			default:
 				return null;
 		}
@@ -133,7 +143,7 @@ public class ErmineInventoryScreenController implements ScreenController {
 		ErmineScreenControllerFunctions.getInstance().setMainText(text);
 	}
 	
-	public void goToInventoryScreen() {
-		ErmineScreenControllerFunctions.getInstance().goToInventoryScreen();
+	public void goToNavigationScreen() {
+		ErmineScreenControllerFunctions.getInstance().goToNavigationScreen();
 	}
 }

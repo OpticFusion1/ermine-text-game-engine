@@ -5,14 +5,12 @@ import control.ErmineNavigationScreenController;
 import control.ErmineNavigationScreenController.NavigationPanelButtons;
 
 public class TestArea extends Area {
-	private final NorthController northController;
-	
 	public TestArea() {
 		super();
 		navigationControl.setButtonText("Change row 1 text", "west");
-		navigationControl.setButtonText("Toggle north text/action", "center");
+		navigationControl.setButtonText("Inventory", "center");
 		
-		northController = new NorthController();
+		NorthController northController = new NorthController();
 		
 		registerNorthAction(northController);
 		registerWestAction(new WestController(this));
